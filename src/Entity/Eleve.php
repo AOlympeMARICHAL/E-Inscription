@@ -77,10 +77,6 @@ class Eleve
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $cours = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Individu $id_individu = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -334,18 +330,6 @@ class Eleve
     public function setCours(?string $cours): static
     {
         $this->cours = $cours;
-
-        return $this;
-    }
-
-    public function getIdIndividu(): ?Individu
-    {
-        return $this->id_individu;
-    }
-
-    public function setIdIndividu(Individu $id_individu): static
-    {
-        $this->id_individu = $id_individu;
 
         return $this;
     }
