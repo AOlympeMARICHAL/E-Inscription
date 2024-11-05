@@ -1,0 +1,352 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\EleveRepository;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: EleveRepository::class)]
+class Eleve
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 11)]
+    private ?string $INE = null;
+
+    #[ORM\Column(length: 13)]
+    private ?string $secu = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateEntree = null;
+
+    #[ORM\Column(length: 1)]
+    private ?string $sexe = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $nationality = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $dateBirth = null;
+
+    #[ORM\Column(length: 3)]
+    private ?string $departmentBirth = null;
+
+    #[ORM\Column]
+    private ?bool $gradeRepetition = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $regime = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $transport = null;
+
+    #[ORM\Column(length: 8, nullable: true)]
+    private ?string $immaVehicle = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $speciality = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $lv1 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $lv2 = null;
+
+    #[ORM\Column]
+    private ?bool $mdl = null;
+
+    #[ORM\Column]
+    private ?bool $copyright = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $bachelor = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $vitalCard = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $idCertificate = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $assurance = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cours = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Individu $id_individu = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getINE(): ?string
+    {
+        return $this->INE;
+    }
+
+    public function setINE(string $INE): static
+    {
+        $this->INE = $INE;
+
+        return $this;
+    }
+
+    public function getSecu(): ?string
+    {
+        return $this->secu;
+    }
+
+    public function setSecu(string $secu): static
+    {
+        $this->secu = $secu;
+
+        return $this;
+    }
+
+    public function getDateEntree(): ?\DateTimeInterface
+    {
+        return $this->dateEntree;
+    }
+
+    public function setDateEntree(?\DateTimeInterface $dateEntree): static
+    {
+        $this->dateEntree = $dateEntree;
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): static
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    public function getNationality(): ?string
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(string $nationality): static
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    public function getDateBirth(): ?\DateTimeInterface
+    {
+        return $this->dateBirth;
+    }
+
+    public function setDateBirth(\DateTimeInterface $dateBirth): static
+    {
+        $this->dateBirth = $dateBirth;
+
+        return $this;
+    }
+
+    public function getDepartmentBirth(): ?string
+    {
+        return $this->departmentBirth;
+    }
+
+    public function setDepartmentBirth(string $departmentBirth): static
+    {
+        $this->departmentBirth = $departmentBirth;
+
+        return $this;
+    }
+
+    public function isGradeRepetition(): ?bool
+    {
+        return $this->gradeRepetition;
+    }
+
+    public function setGradeRepetition(bool $gradeRepetition): static
+    {
+        $this->gradeRepetition = $gradeRepetition;
+
+        return $this;
+    }
+
+    public function getRegime(): ?string
+    {
+        return $this->regime;
+    }
+
+    public function setRegime(string $regime): static
+    {
+        $this->regime = $regime;
+
+        return $this;
+    }
+
+    public function getTransport(): ?string
+    {
+        return $this->transport;
+    }
+
+    public function setTransport(string $transport): static
+    {
+        $this->transport = $transport;
+
+        return $this;
+    }
+
+    public function getImmaVehicle(): ?string
+    {
+        return $this->immaVehicle;
+    }
+
+    public function setImmaVehicle(?string $immaVehicle): static
+    {
+        $this->immaVehicle = $immaVehicle;
+
+        return $this;
+    }
+
+    public function getSpeciality(): ?string
+    {
+        return $this->speciality;
+    }
+
+    public function setSpeciality(string $speciality): static
+    {
+        $this->speciality = $speciality;
+
+        return $this;
+    }
+
+    public function getLv1(): ?string
+    {
+        return $this->lv1;
+    }
+
+    public function setLv1(string $lv1): static
+    {
+        $this->lv1 = $lv1;
+
+        return $this;
+    }
+
+    public function getLv2(): ?string
+    {
+        return $this->lv2;
+    }
+
+    public function setLv2(?string $lv2): static
+    {
+        $this->lv2 = $lv2;
+
+        return $this;
+    }
+
+    public function isMdl(): ?bool
+    {
+        return $this->mdl;
+    }
+
+    public function setMdl(bool $mdl): static
+    {
+        $this->mdl = $mdl;
+
+        return $this;
+    }
+
+    public function isCopyright(): ?bool
+    {
+        return $this->copyright;
+    }
+
+    public function setCopyright(bool $copyright): static
+    {
+        $this->copyright = $copyright;
+
+        return $this;
+    }
+
+    public function getBachelor(): ?string
+    {
+        return $this->bachelor;
+    }
+
+    public function setBachelor(string $bachelor): static
+    {
+        $this->bachelor = $bachelor;
+
+        return $this;
+    }
+
+    public function getVitalCard(): ?string
+    {
+        return $this->vitalCard;
+    }
+
+    public function setVitalCard(string $vitalCard): static
+    {
+        $this->vitalCard = $vitalCard;
+
+        return $this;
+    }
+
+    public function getIdCertificate(): ?string
+    {
+        return $this->idCertificate;
+    }
+
+    public function setIdCertificate(string $idCertificate): static
+    {
+        $this->idCertificate = $idCertificate;
+
+        return $this;
+    }
+
+    public function getAssurance(): ?string
+    {
+        return $this->assurance;
+    }
+
+    public function setAssurance(?string $assurance): static
+    {
+        $this->assurance = $assurance;
+
+        return $this;
+    }
+
+    public function getCours(): ?string
+    {
+        return $this->cours;
+    }
+
+    public function setCours(?string $cours): static
+    {
+        $this->cours = $cours;
+
+        return $this;
+    }
+
+    public function getIdIndividu(): ?Individu
+    {
+        return $this->id_individu;
+    }
+
+    public function setIdIndividu(Individu $id_individu): static
+    {
+        $this->id_individu = $id_individu;
+
+        return $this;
+    }
+}
