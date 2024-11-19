@@ -22,4 +22,16 @@ class LoginController extends AbstractController
              'error'         => $error,
           ]);
 }
+#[Route('/check-access', name: 'app_check_access')]
+    public function checkAccess(): Response
+    {
+        // Vérifiez si l'utilisateur a accès
+        if ($this->isGranted('ROLE_ADMIN')) {
+            // L'utilisateur a accès
+            return new Response('Access granted.');
+        }
+
+        // L'utilisateur n'a pas accès
+        return new Response('Access denied.', Response::HTTP_FORBIDDEN);
+    }
 }
