@@ -1480,6 +1480,7 @@ h2 {
   font-size: 1.75rem;
   line-height: 2.25rem;
   margin: var(--title-spacing);
+  text-align: center;
 }
 
 h1 {
@@ -1487,6 +1488,7 @@ h1 {
   font-size: 2rem;
   line-height: 2.5rem;
   margin: var(--title-spacing);
+  text-align: center;
 }
 
 p {
@@ -1719,6 +1721,7 @@ body {
   line-height: 1.5rem;
   overflow-wrap: break-word;
   background-color: var(--background-default-grey);
+  
 
   --idle: transparent;
   --hover: var(--background-default-grey-hover);
@@ -1843,6 +1846,7 @@ hr {
   background-repeat: no-repeat;
   background-position: 0 0;
   background-image: linear-gradient(0deg, var(--border-default-grey), var(--border-default-grey));
+
 }
 
 .fr-hr--sm {
@@ -1976,13 +1980,14 @@ iframe[class*=" fr-ratio"] {
 .fr-grid-row {
   display: flex;
   flex-wrap: wrap;
-  margin: -20;
+  margin: 0;
   padding: 0;
-  background-color: #e6e6e6e6;
+  
 }
 
 .fr-grid-row--top {
   align-items: flex-start;
+
 }
 
 .fr-grid-row--bottom {
@@ -9433,6 +9438,7 @@ a.fr-btn--team:not([href]),
   justify-content: center;
   margin-bottom: 0.75rem;
 
+
   --underline-img: none;
   --hover-tint: var(--hover);
   --active-tint: var(--active);
@@ -9502,7 +9508,7 @@ a.fr-btn--team:not([href]),
 }
 
 .fr-connect-group {
-  --text-spacing: 0 0 1rem 0;
+  --text-spacing: 0 0 1rem 5rem;
 }
 
 .fr-connect-group p {
@@ -9738,6 +9744,7 @@ un padding de 4px et une marge négative en compensation sont mis en place afin 
   margin: 1rem 0 2rem;
   font-size: 0.75rem;
   line-height: 1.25rem;
+  padding-left: 0;
 
   --text-spacing: 0 0 0.5rem;
   position: relative;
@@ -23623,6 +23630,7 @@ a.fr-password__btn:not([href]) {
 
   .fr-breadcrumb__list {
     transform: none;
+    margin-left: 0.456cm;
   }
 
   /*! media md */
@@ -24352,6 +24360,7 @@ a.fr-password__btn:not([href]) {
     align-items: flex-start;
     justify-content: center;
     height: 100%;
+    
   }
 
   .fr-follow .fr-grid-row > *:not(:first-child) {
@@ -24662,6 +24671,7 @@ a.fr-password__btn:not([href]) {
     flex: 0 0 calc(600% / 12);
     width: calc(600% / 12);
     max-width: calc(600% / 12);
+    background-color: #e6e6e6e6;
   }
 
   .fr-col-offset-lg-6:not(.fr-col-offset-lg-6--right) {
