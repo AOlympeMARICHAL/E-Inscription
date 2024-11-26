@@ -1976,8 +1976,9 @@ iframe[class*=" fr-ratio"] {
 .fr-grid-row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
+  margin: -20;
   padding: 0;
+  background-color: #e6e6e6e6;
 }
 
 .fr-grid-row--top {
