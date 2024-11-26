@@ -1480,7 +1480,7 @@ h2 {
   font-size: 1.75rem;
   line-height: 2.25rem;
   margin: var(--title-spacing);
-  text-align: center;
+  
 }
 
 h1 {
@@ -1488,7 +1488,6 @@ h1 {
   font-size: 2rem;
   line-height: 2.5rem;
   margin: var(--title-spacing);
-  text-align: center;
 }
 
 p {
@@ -18787,7 +18786,7 @@ a.fr-tile__title:not([href]) {
 }
 
 .fr-input-group {
-  position: relative;
+  position:relative;
 }
 
 .fr-input-group .fr-message:first-child {
@@ -18807,7 +18806,7 @@ a.fr-tile__title:not([href]) {
   left: -0.75rem;
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-size: 0.125rem 100%;
+  background-size: 0.125rem 50%;
 }
 
 textarea.fr-input {
@@ -24517,6 +24516,7 @@ a.fr-password__btn:not([href]) {
   /*! media lg */
   .fr-hidden-lg {
     display: none !important;
+    
   }
 
   .fr-unhidden-lg {
@@ -24534,6 +24534,7 @@ a.fr-password__btn:not([href]) {
     white-space: nowrap; /* added line */
     border: 0;
     display: block;
+    
   }
 
   .fr-container,
@@ -24541,11 +24542,13 @@ a.fr-password__btn:not([href]) {
   .fr-container-md {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    
   }
 
   .fr-container-lg {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    
   }
 
   .fr-container-lg--fluid {
