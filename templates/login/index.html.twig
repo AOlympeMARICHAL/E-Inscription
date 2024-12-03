@@ -5,6 +5,23 @@
 {% block body %}
 
 {% include 'banner.html.twig' %}
+
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="#/">Acceuil</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="#/">Connexion</a>
+            </li>
+        </ol>
+    </div>
+</nav>
+
+
+
 <main class="fr-pt-md-14v" role="main" id="content">
     <div class="fr-container fr-container--fluid fr-mb-md-14v">
         <div class="fr-grid-row fr-grid-row-gutters fr-grid-row--center">
@@ -12,9 +29,9 @@
                 <div class="fr-container fr-background-alt--grey fr-px-md-0 fr-py-10v fr-py-md-14v">
                     <div class="fr-grid-row fr-grid-row-gutters fr-grid-row--center">
                         <div class="fr-col-12 fr-col-md-9 fr-col-lg-8">
-                            <h1>Connexion à E-Inscription</h1>
+                            <h1 style='text-align: center;'>Connexion à <br>E-Inscription</h1>
                             <div class="fr-mb-6v">
-                                <h2>Se connecter avec FranceConnect</h2>
+                                <h2 style='text-align: center;'>Se connecter avec FranceConnect</h2>
                                 <div class="fr-connect-group">
                                     <button class="fr-connect">
                                         <span class="fr-connect__login">S’identifier avec</span>
@@ -33,9 +50,6 @@
                                             <h2>Se connecter avec son compte</h2>
                                         </legend>
                                         <div class="fr-fieldset__element">
-                                            <p class="fr-text--sm">Description — Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                        <div class="fr-fieldset__element">
                                             <fieldset class="fr-fieldset" id="credentials" aria-labelledby="credentials-messages">
                                                 <div class="fr-fieldset__element">
                                                     <span class="fr-hint-text">Sauf mention contraire, tous les champs sont obligatoires.</span>
@@ -44,7 +58,7 @@
                                                     <div class="fr-input-group">
                                                         <label class="fr-label" for="username-1757">
                                                             Identifiant
-                                                            <span class="fr-hint-text">Format attendu : nom@domaine.fr</span>
+                                                            <span class="fr-hint-text">Format attendu : nom.prenomX</span>
                                                         </label>
                                                         <input class="fr-input" autocomplete="username" aria-required="true" aria-describedby="username-1757-messages" name="username" id="username-1757" type="text">
                                                         <div class="fr-messages-group" id="username-1757-messages" aria-live="assertive">
