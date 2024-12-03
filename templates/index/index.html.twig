@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 {% include 'banner.html.twig' %}
@@ -9,14 +9,12 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="fr-container">
+    <h1 style="text-align: center;" >Bienvenu(e) sur E-Inscription</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/marichal/Documents/E-Inscription/src/Controller/IndexController.php</code></li>
-        <li>Your template at <code>C:/Users/marichal/Documents/E-Inscription/templates/index/index.html.twig</code></li>
-    </ul>
+    <p style="text-align: center;" >Pour continuer l'inscription, veuillez appuyer sur suivant.</p>
+    <button class="fr-btn">Suivant</button>
+    
 </div>
 
 {% include 'footer.html.twig' %}
