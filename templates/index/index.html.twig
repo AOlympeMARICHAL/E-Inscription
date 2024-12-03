@@ -1,17 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 {% include 'banner.html.twig' %}
-<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
-    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
-    <div class="fr-collapse" id="breadcrumb-1">
-        <ol class="fr-breadcrumb__list">
-            <li>
-                <a class="fr-breadcrumb__link" href="#/">Accueil</a>
-            </li>
-            
-    </div>
-</nav>
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+{# <div class="fr-container">
+    <h1 style="text-align: center;" >Bienvenu(e) sur E-Inscription</h1>
+
+    <p style="text-align: center;" >Pour continuer l'inscription, veuillez appuyer sur suivant.</p>
+    <button class="fr-btn">Suivant</button>
+    
+</div> #}
+<div class="fr-grid-row">
+            <div class="fr-container fr-m-20v ">
+                <h2>Bienvenu(e) sur E-Inscription</h2>
+                <p>Pour continuer l'inscription, veuillez appuyer sur suivant</p>
+                <button class="fr-btn">Suivant</button>
+            </div>
+        </div>
+
+
+{% include 'footer.html.twig' %}
 {% endblock %}
