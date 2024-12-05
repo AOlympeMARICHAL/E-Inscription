@@ -2,10 +2,10 @@
 
 # Les prérequis : 
 
-`-Symfony CLI`
-`-PHP (Lastest version)`
-`MariaDB (Lastest version)`
-`-DSRF : https://github.com/GouvernementFR/dsfr/releases/tag/v1.13.0`
+`-Symfony CLI` <br>
+`-PHP (Lastest version)` <br>
+`MariaDB (Lastest version)`<br>
+`-DSRF : https://github.com/GouvernementFR/dsfr/releases/tag/v1.13.0` <br>
 
 Pour installer les composant nécéssaires :
 
