@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class FormSixController extends AbstractController
+class FormTroisController extends AbstractController
 {
-    #[Route('/form/6', name: 'app_form_six')]
+    #[Route('/form/3', name: 'app_form_trois')]
     public function index(): Response
     {
-        return $this->render('form_six/index.html.twig', [
-            'controller_name' => 'FormSixController',
+        return $this->render('form_trois/index.html.twig', [
+            'controller_name' => 'FormTroisController',
         ]);
     }
 }

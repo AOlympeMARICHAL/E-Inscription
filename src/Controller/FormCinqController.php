@@ -8,10 +8,10 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class FormCinqController extends AbstractController
 {
-    #[Route('/form/cinq', name: 'app_form_cinq')]
+    #[Route('/form/5', name: 'app_form_cinq')]
     public function index(): Response
     {
-        return $this->render('form_cinq/index.html.twig', [
+        return $this->render('form/cinq.html.twig', [
             'controller_name' => 'FormCinqController',
         ]);
     }
