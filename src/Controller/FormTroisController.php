@@ -11,7 +11,7 @@ class FormTroisController extends AbstractController
     #[Route('/form/3', name: 'app_form_trois')]
     public function index(): Response
     {
-        return $this->render('form_trois/index.html.twig', [
+        return $this->render('form/trois.html.twig', [
             'controller_name' => 'FormTroisController',
         ]);
     }

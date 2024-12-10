@@ -3,5 +3,33 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="#/">Accueil</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="#/">Renseignement</a>
+            </li>
+             <li>
+                <a class="fr-breadcrumb__link" href="#/">Scolarité antérieur</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="#/">Responsables légaux</a>
+            </li> 
+    </div>
+</nav>
+<div class="fr-container">
+    <div class="fr-container">
+        <h1>Responsables légaux</h1>
+        <div class="fr-stepper">
+    <h2 class="fr-stepper__title">
+        Scolarité antérieur de l'étudiant
+        <span class="fr-stepper__state">Étape 3 sur 7</span>
+    </h2>
+    <div class="fr-stepper__steps" data-fr-current-step="3" data-fr-steps="7"></div>
+</div>
 
 {% endblock %}

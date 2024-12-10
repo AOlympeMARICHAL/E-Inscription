@@ -11,7 +11,7 @@ class FormUnController extends AbstractController
     #[Route('/form/1', name: 'app_form_un')]
     public function index(): Response
     {
-        return $this->render('form_un/index.html.twig', [
+        return $this->render('form/un.html.twig', [
             'controller_name' => 'FormUnController',
         ]);
     }

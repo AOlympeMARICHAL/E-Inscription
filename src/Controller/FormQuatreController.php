@@ -11,7 +11,7 @@ class FormQuatreController extends AbstractController
     #[Route('/form/4', name: 'app_form_quatre')]
     public function index(): Response
     {
-        return $this->render('form_quatre/index.html.twig', [
+        return $this->render('form/quatre.html.twig', [
             'controller_name' => 'FormQuatreController',
         ]);
     }
