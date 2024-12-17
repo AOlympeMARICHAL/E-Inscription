@@ -1,21 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-{% include 'banner.html.twig' %}
 <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
     <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Accueil</a>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
             </li>
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Renseignement sur l'étudiant(e)</a>
+                <a class="fr-breadcrumb__link" href="/form/1">Renseignement sur l'étudiant(e)</a>
             </li>
              <li>
-                <a class="fr-breadcrumb__link" href="#/">Scolarité antérieur de l'étudiant(e)</a>
+                <a class="fr-breadcrumb__link" href="/form/2">Scolarité antérieur de l'étudiant(e)</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/3">Responsable légaux</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/4">Fiche d'urgence</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link">Fiche d'intendance</a>
             </li>
             
     </div>
@@ -118,9 +126,6 @@
     </label>
     <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
 </div>
-<button class="fr-btn" style="margin:5px">
-    Suivant ->
-</button>
+<a class="fr-btn" href="/form/6">Suivant</a>
 
-{% include 'footer.html.twig' %}
 {% endblock %}

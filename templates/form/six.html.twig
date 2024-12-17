@@ -1,26 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-{% include 'banner.html.twig' %}
 <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
     <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Accueil</a>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
             </li>
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Renseignement sur l'étudiant(e)</a>
+                <a class="fr-breadcrumb__link" href="/form/1">Renseignement sur l'étudiant(e)</a>
             </li>
              <li>
-                <a class="fr-breadcrumb__link" href="#/">Scolarité antérieur de l'étudiant(e)</a>
+                <a class="fr-breadcrumb__link" href="/form/2">Scolarité antérieur de l'étudiant(e)</a>
             </li>
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Documents à fournir</a>
+                <a class="fr-breadcrumb__link" href="/form/3">Responsable légaux</a>
             </li>
-            
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/4">Fiche d'urgence</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/5">Fiche d'intendance</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link">Fiche d'intendance</a>
+            </li>
     </div>
 </nav>
 
@@ -30,7 +37,7 @@
         Titre de la dernière étape en cours
         <span class="fr-stepper__state">Étape 6 sur 7</span>
     </h2>
-    <div class="fr-stepper__steps" data-fr-current-step="6w" data-fr-steps="7"></div>
+    <div class="fr-stepper__steps" data-fr-current-step="6" data-fr-steps="7"></div>
 </div>
 <h2 style = 'margin: 20px'>Document à fournir</h2>
 
@@ -49,9 +56,7 @@
 <!-- Ajout multiple : ajout de l'attribut multiple sur la balise input -->
 <label>Photo d’identité (recto et verso)</label>
 <input class="fr-upload" type="file" id="file-upload" name="file-upload" multiple>
-<button class="fr-btn" style="margin:5px">
-    Suivant ->
-</button>
+<a class="fr-btn" href="/form/end">Suivant</a>
 
-{% include 'footer.html.twig' %}
+
 {% endblock %}

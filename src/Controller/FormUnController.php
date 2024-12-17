@@ -8,10 +8,10 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class FormUnController extends AbstractController
 {
-    #[Route('/form_incription_un', name: 'app_form_un')]
+    #[Route('/form/1', name: 'app_form_un')]
     public function index(): Response
     {
-        return $this->render('form_un/index.html.twig', [
+        return $this->render('form/un.html.twig', [
             'controller_name' => 'FormUnController',
         ]);
     }
