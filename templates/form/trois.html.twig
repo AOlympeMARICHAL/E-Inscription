@@ -8,16 +8,16 @@
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Accueil</a>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
             </li>
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Renseignement</a>
+                <a class="fr-breadcrumb__link" href="/form/1">Renseignement</a>
             </li>
              <li>
-                <a class="fr-breadcrumb__link" href="#/">Scolarité antérieur</a>
+                <a class="fr-breadcrumb__link" href="/form/2">Scolarité antérieur</a>
             </li>
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Responsables légaux</a>
+                <a class="fr-breadcrumb__link">Responsables légaux</a>
             </li> 
     </div>
 </nav>
@@ -31,5 +31,86 @@
     </h2>
     <div class="fr-stepper__steps" data-fr-current-step="3" data-fr-steps="7"></div>
 </div>
+<h3>L'étudiant est indépendant ou majeur responsable</h3>
+<form>
+ {# ------------------------------------------------------------ #}
+<fieldset class="fr-fieldset" aria-label="Demande de situation familiale" aria-describedby="civility-family-1432-fieldset-messages">
+    <div class="fr-fieldset__element">
+        <div class="fr-select-group">
+            <label for="family-select-1" class="fr-label">
+                Situation familiale
+            </label>
+            <select class="fr-select" id="family-select-1" name="family">
+                <option value="" selected disabled hidden>Sélectionner une option</option>
+                <option value="1">Célibataire</option>
+                <option value="2">Concubinage</option>
+                <option value="3">Pacsé(e)</option>
+                <option value="4">Marié(e)</option>
+                <option value="5">Veuf-Veuve</option>
+                <option value="6">Divorcé(e)</option>
+                <option value="7">Sans réponse</option>
+            </select>
+        </div>
+    </div>
 
+    <div class="fr-messages-group" assert-live="assertive" id="civility-family-1432-fieldset-messages">
+    </div>
+</fieldset>
+ {# ------------------------------------------------------------ #}
+<h3>Responsable légal 1</h3>
+<fieldset class="fr-fieldset" id="radio-inline" aria-labelledby="radio-inline-legend radio-inline-messages">
+    <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-radio-group">
+            <input type="radio" id="radio-inline-1" name="radio-inline">
+            <label class="fr-label" for="radio-inline-1">
+                Père
+            </label>
+        </div>
+    </div>
+    <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-radio-group">
+            <input type="radio" id="radio-inline-2" name="radio-inline">
+            <label class="fr-label" for="radio-inline-2">
+                Mère
+            </label>
+        </div>
+    </div>
+    <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-radio-group">
+            <input type="radio" id="radio-inline-3" name="radio-inline">
+            <label class="fr-label" for="radio-inline-3">
+                Autres
+            </label>
+        </div>
+    </div>
+    <div class="fr-messages-group" id="radio-inline-messages" aria-live="assertive">
+    </div>
+</fieldset>
+{# ------------------------------------------------------------ #}
+<p class="fr-text--bold">Autoriser la communication de votre adresse aux associations de parents d'élèves</p>
+<fieldset class="fr-fieldset" id="radio-inline" aria-labelledby="radio-inline-legend radio-inline-messages">
+    <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-radio-group">
+            <input type="radio" id="radio-inline-4" name="radio-inline">
+            <label class="fr-label" for="radio-inline-4">
+                Oui
+            </label>
+        </div>
+    </div>
+    <div class="fr-fieldset__element fr-fieldset__element--inline">
+        <div class="fr-radio-group">
+            <input type="radio" id="radio-inline-5" name="radio-inline">
+            <label class="fr-label" for="radio-inline-5">
+                Non
+            </label>
+        </div>
+    </div>
+    <div class="fr-messages-group" id="radio-inline-messages" aria-live="assertive">
+    </div>
+</fieldset>
+
+
+</form>
+
+<a class="fr-btn" href="/form/4">Suivant</a>
 {% endblock %}
