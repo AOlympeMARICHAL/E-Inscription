@@ -1,29 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}E-Inscription{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-{% include 'banner.html.twig' %}
 <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
-    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    {# <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Accueil</a>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
             </li>
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Renseignement sur l'étudiant(e)</a>
+                <a class="fr-breadcrumb__link" href="/form/1">Renseignement sur l'étudiant(e)</a>
             </li>
              <li>
-                <a class="fr-breadcrumb__link" href="#/">Scolarité antérieur de l'étudiant(e)</a>
+                <a class="fr-breadcrumb__link" href="/form/2">Scolarité antérieur de l'étudiant(e)</a>
             </li>
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Documents à fournir</a>
-            </li>*
-            <li>
-                <a class="fr-breadcrumb__link" href="#/">Confirmation</a>
+                <a class="fr-breadcrumb__link" href="/form/3">Responsable légaux</a>
             </li>
-            <h1 style = 'margin-left: 10px'>Inscription au Lycée Fulbert</h1>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/4">Fiche d'urgence</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/5">Fiche d'intendance</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/6">Fiche d'intendance</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link">Confirmation</a>
+            </li>
+            <h1 style = 'margin-left: 10px'>Inscription au Lycée Fulbert</h1> #}
 
     <div class="fr-stepper" style = 'margin: 20px'>
         <h2 class="fr-stepper__title">
@@ -48,5 +56,4 @@ une notification vous sera envoyer.</h4>
 <button class="fr-btn" style="margin-left:900px">
     Confirmer
 </button>
-{% include 'footer.html.twig' %}
 {% endblock %}

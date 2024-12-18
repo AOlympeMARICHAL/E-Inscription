@@ -1,17 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}E-Inscription{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-{% include 'banner.html.twig' %}
+
 <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
     <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
     <div class="fr-collapse" id="breadcrumb-1">
         <ol class="fr-breadcrumb__list">
             <li>
-                <a class="fr-breadcrumb__link" href="#/">Accueil</a>
-            </li>
-            
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+            </li>         
     </div>
 </nav>
+
+<div class="fr-grid-row">
+            <div class="fr-container fr-m-20v ">
+                <h2>Bienvenu(e) sur E-Inscription</h2>
+                <p>Pour continuer l'inscription, veuillez appuyer sur suivant</p>
+                <a class="fr-btn" href="/form/1">Suivant</a>
+            </div>
+        </div>
+
+
 {% endblock %}
