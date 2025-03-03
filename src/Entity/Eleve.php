@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EleveRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -76,6 +78,25 @@ class Eleve
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $cours = null;
+
+    #[ORM\ManyToOne(inversedBy: 'id_eleve')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Financier $financier = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Individu $individu = null;
+
+    /**
+     * @var Collection<int, Antecedent>
+     */
+    #[ORM\OneToMany(targetEntity: Antecedent::class, mappedBy: 'id_eleve')]
+    private Collection $antecedent;
+
+    public function __construct()
+    {
+        $this->antecedent = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -333,4 +354,59 @@ class Eleve
 
         return $this;
     }
+
+    public function getFinancier(): ?Financier
+    {
+        return $this->financier;
+    }
+
+    public function setFinancier(?Financier $financier): static
+    {
+        $this->financier = $financier;
+
+        return $this;
+    }
+
+    public function getIndividu(): ?Individu
+    {
+        return $this->individu;
+    }
+
+    public function setIndividu(Individu $individu): static
+    {
+        $this->individu = $individu;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Antecedent>
+     */
+    public function getAntecedent(): Collection
+    {
+        return $this->antecedent;
+    }
+
+    public function addAntecedent(Antecedent $antecedent): static
+    {
+        if (!$this->antecedent->contains($antecedent)) {
+            $this->antecedent->add($antecedent);
+            $antecedent->setIdEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAntecedent(Antecedent $antecedent): static
+    {
+        if ($this->antecedent->removeElement($antecedent)) {
+            // set the owning side to null (unless already changed)
+            if ($antecedent->getIdEleve() === $this) {
+                $antecedent->setIdEleve(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

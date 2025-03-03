@@ -43,6 +43,15 @@ class Individu
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $addressBoss = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Financier $financier = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Responsable $responsable = null;
+
+    #[ORM\ManyToOne(inversedBy: 'id_individu')]
+    private ?Urgence $urgence = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -164,6 +173,42 @@ class Individu
     public function setAddressBoss(?string $addressBoss): static
     {
         $this->addressBoss = $addressBoss;
+
+        return $this;
+    }
+
+    public function getFinancier(): ?Financier
+    {
+        return $this->financier;
+    }
+
+    public function setFinancier(?Financier $financier): static
+    {
+        $this->financier = $financier;
+
+        return $this;
+    }
+
+    public function getResponsable(): ?Responsable
+    {
+        return $this->responsable;
+    }
+
+    public function setResponsable(?Responsable $responsable): static
+    {
+        $this->responsable = $responsable;
+
+        return $this;
+    }
+
+    public function getUrgence(): ?Urgence
+    {
+        return $this->urgence;
+    }
+
+    public function setUrgence(?Urgence $urgence): static
+    {
+        $this->urgence = $urgence;
 
         return $this;
     }
