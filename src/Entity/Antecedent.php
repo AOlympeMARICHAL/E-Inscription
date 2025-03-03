@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AntecedentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,10 @@ class Antecedent
 
     #[ORM\Column(length: 255)]
     private ?string $school = null;
+
+    #[ORM\ManyToOne(inversedBy: 'antecedent')]
+    private ?Eleve $id_eleve = null;
+
 
     public function getId(): ?int
     {
@@ -108,4 +114,17 @@ class Antecedent
 
         return $this;
     }
+
+    public function getIdEleve(): ?Eleve
+    {
+        return $this->id_eleve;
+    }
+
+    public function setIdEleve(?Eleve $id_eleve): static
+    {
+        $this->id_eleve = $id_eleve;
+
+        return $this;
+    }
+
 }
