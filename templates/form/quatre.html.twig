@@ -25,41 +25,47 @@
             
     </div>
 </nav>
+<div class="fr-container">
+    <div class="fr-container">
+        <h1>Inscription au Lycée Fulbert</h1>
+        <div class="fr-stepper">
+            <h2 class="fr-stepper__title">
+                Titre de la dernière étape en cours
+                <span class="fr-stepper__state">Étape 4 sur 7</span>
+            </h2>
+             <div class="fr-stepper__steps" data-fr-current-step="4" data-fr-steps="7"></div>
+        </div>
+        
+        <h3>Fiche d'urgence</h3>
+        {# ------------------------------------------------------------ #}
+        <form>
+            <div class="fr-input-group">
+                <label class="fr-label" for="text-input-option"> Nom du medecin
+                </label>
+                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            </div>
+            {# ------------------------------------------------------------ #}
+            <div class="fr-input-group">
+                <label class="fr-label" for="text-input-option"> Adresse du medecin
+                </label>
+                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            </div>
+            {# ------------------------------------------------------------ #}
+            <div class="fr-input-group">
+                <label class="fr-label" for="text-input-option">Téléphone du médecin
+                </label>
+                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            </div>
+            {# ------------------------------------------------------------ #}
+            <div class="fr-input-group">
+                <label class = "fr-label" for="text-input_date"> Date du dernier rappel de vaccin antitétanique
+                <input class="fr-input "type="date">
+            </div>
 
-<h1 style = 'margin-left: 10px'>Inscription au Lycée Fulbert</h1>
-<div class="fr-stepper" style = 'margin: 20px'>
-    <h2 class="fr-stepper__title">
-        Titre de la dernière étape en cours
-        <span class="fr-stepper__state">Étape 4 sur 7</span>
-    </h2>
-    <div class="fr-stepper__steps" data-fr-current-step="4" data-fr-steps="7"></div>
-</div>
-<h2 style = 'margin: 35px'>Fiche d'urgence</h2>
-
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-option"> Nom du medecin
-    </label>
-    <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
-</div>
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-option"> Adresse du medecin
-    </label>
-    <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
-</div>
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-option">Téléphone du médecin
-    </label>
-    <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
-</div>
-
-
-<div class="fr-input-group"style = 'margin: 35px'>
-<label class = "fr-label" for="text-input_date"> Date du dernier rappel de vaccin antitétanique
-<input class="fr-input "type="date">
-
+        </form>
+        
+    </div>
+    
 </div>
 
 <a class="fr-btn" href="/form/5">Suivant</a>
