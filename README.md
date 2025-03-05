@@ -1,7 +1,23 @@
 # E-Inscription
 
 # Les prérequis : 
+Pour l’installation des applications ainsi que de la base de données il est nécessaire d’avoir ces éléments. Voici la liste des prérequis, merci de ne pas faire des procéder à l’installations des composant sans lire la documentation et en la suivant. 
 
+Debian12 64bit : 
+
+Ssh 
+
+Composer 
+
+Symfony-cli 
+
+PHP (LTS version) 
+
+Mariadb (LTS version) 
+
+Apache2 (LTS version) 
+
+Fail2Ban LTS version 
 `-Symfony CLI` <br>
 `-PHP (Lastest version)` <br>
 `MariaDB (Lastest version)`<br>
