@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+{# -----------------------Fil d'Ariane------------------------------------- #}
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/1">Renseignement</a>
+            </li>
+             <li>
+                <a class="fr-breadcrumb__link">Scolarité antérieur</a>
+            </li>
+            
+    </div>
+</nav>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-container">
+    <div class="fr-container">
+        <h1>Inscription au Lycée Fulbert</h1>
+        <div class="fr-stepper">
+    <h2 class="fr-stepper__title">
+        Scolarité antérieur de l'étudiant
+        <span class="fr-stepper__state">Étape 2 sur 7</span>
+    </h2>
+    <div class="fr-stepper__steps" data-fr-current-step="2" data-fr-steps="7"></div>
+</div>
+
+{# ----------------------Année précendente (à rendre dynamique)-------------------------------------- #}
+
+<h3>2022-2023 :</h3>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group" style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-name-etab">Nom de l'établissement
+        <span class="fr-hint-text">exemple : Lycée Fulbert Chartres</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-name-etab" name="text-input-name-etab">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-classe">Classe
+        <span class="fr-hint-text">exemple : Première Générale</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-classe" name="text-input-classe">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-option">Option
+        <span class="fr-hint-text">exemple : Math Experte</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-lv1">Langue Vivante 1
+        <span class="fr-hint-text">Exemple : Anglais</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-lv1" name="text-input-lv1">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-lv2">Langue Vivante 2
+        <span class="fr-hint-text">Exemple : Espagnol</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-lv2" name="text-input-lv2">
+</div>
+
+{# --------------------Année dernière (à rendre dynamique)---------------------------------------- #}
+
+<h3>2023-2024 :</h3>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group" style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-name-etab">Nom de l'établissement
+        <span class="fr-hint-text">exemple : Lycée Fulbert Chartres</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-name-etab" name="text-input-name-etab">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-classe">Classe
+        <span class="fr-hint-text">exemple : Terminal Générale</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-classe" name="text-input-classe">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-option">Option
+        <span class="fr-hint-text">exemple : Math Experte</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-lv1">Langue Vivante 1
+        <span class="fr-hint-text">Exemple : Anglais</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-lv1" name="text-input-lv1">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-lv2">Langue Vivante 2
+        <span class="fr-hint-text">Exemple : Espagnol</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-lv2" name="text-input-lv2">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<h3>Dernier diplôme obtenue</h3>
+
+{# ------------------------------------------------------------ #}
+
+<div class="fr-input-group"style = 'margin: 35px'>
+    <label class="fr-label" for="text-input-diplôme">
+        <span class="fr-hint-text">Exemple : BAC Général</span>
+    </label>
+    <input class="fr-input" type="text" id="text-input-diplôme" name="text-input-diplôme">
+</div>
+
+{# ------------------------------------------------------------ #}
+
+<a class="fr-btn" href="/form/3">Suivant</a>
+
+{% endblock %}

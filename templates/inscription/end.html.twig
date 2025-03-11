@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    {# <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/1">Renseignement sur l'étudiant(e)</a>
+            </li>
+             <li>
+                <a class="fr-breadcrumb__link" href="/form/2">Scolarité antérieur de l'étudiant(e)</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/3">Responsable légaux</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/4">Fiche d'urgence</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/5">Fiche d'intendance</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/form/6">Fiche d'intendance</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link">Confirmation</a>
+            </li>
+            <h1 style = 'margin-left: 10px'>Inscription au Lycée Fulbert</h1> #}
+
+    <div class="fr-stepper" style = 'margin: 20px'>
+        <h2 class="fr-stepper__title">
+            Titre de la dernière étape en cours
+            <span class="fr-stepper__state">Étape 7 sur 7</span>
+        </h2>
+    <div class="fr-stepper__steps" data-fr-current-step="7" data-fr-steps="7"></div>
+</div>
+            
+    </div>
+</nav>
+<div class="fr-alert fr-alert--warning" style="margin:50px">
+    <h3 class="fr-alert__title">Attention : Message de confirmation</h3>
+    <p>Vous allez quitter E-Inscription mais votre inscription n’est pas terminé. Êtes-vous sûr de vouloir continuer ?
+(Tout ce que vous avez fait précédement est enregistré.)</p>
+</div>
+<h1 style='text-align:center'>Votre Inscription est TERMINÉ</h1>
+<h4 style='text-align:center'>Si vous avez un doute, vous pouvez revenir au début et relire vos information.<br>
+Si des informations ou des documents sont manquants, <br>
+une notification vous sera envoyer.</h4>
+
+<button class="fr-btn" style="margin-left:900px">
+    Confirmer
+</button>
+{% endblock %}

@@ -1,0 +1,229 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<nav role="navigation" class="fr-breadcrumb" aria-label="Vous êtes ici :">
+  <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+  <div class="fr-collapse" id="breadcrumb-1">
+    <ul class="fr-breadcrumb__list">
+      <li>
+        <a class="fr-breadcrumb__link" href="/">Accueil</a>
+      </li>
+      <li>
+        <a class="fr-breadcrumb__link" href="#">Renseignement</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="fr-container">
+  <h1>Inscription au Lycée Fulbert</h1>
+  <div class="fr-stepper">
+    <h2 class="fr-stepper__title">
+      Renseignement
+      <span class="fr-stepper__state">Étape 1 sur 7</span>
+    </h2>
+    <div class="fr-stepper__steps" data-fr-current-step="1" data-fr-steps="7"></div>
+    <p class="fr-stepper__details">
+      <span class="fr-text--bold">Étape suivante :</span> Scolarité antérieur
+    </p>
+</div>
+ <div class="sp-perso sp-perso-content fr-mb-4w">
+    <div class="sp-perso-header">
+      <h3 class="fr-h3 sp-perso-title sp-accent">Identité de l'élève</h3>
+    </div>
+    <form method="get" action="#">
+      <div class="fr-input-group fr-grid-row">
+        <fieldset class="fr-fieldset" aria-label="Nom et prénom">
+          <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend" for="nomEleve">Nom</legend>
+            <input class="fr-input" spellcheck="false" name="nomEleve" id="nomEleve" type="text">
+          </div>
+          <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend" for="prenomEleve">Prénom</legend>
+            <input class="fr-input" spellcheck="false" name="prenomEleve" id="prenomEleve" type="text">
+          </div>
+        </fieldset>
+      </div>
+
+      <fieldset class="fr-fieldset" aria-label="Numéro de Sécurité Social">
+        <div class="fr-fieldset__element">
+          <legend class="fr-fieldset__legend" for="secu">
+            Numéro de Sécurité Social
+            <span class="fr-hint-text">Seulement pour les apprentis</span>
+          </legend>
+          <input class="fr-input" autocomplete="secu" id="secu" type="tel" placeholder="ex: 2 94 03 75 120 005 22">
+        </div>
+      </fieldset>
+
+      <fieldset class="fr-fieldset" aria-label="Date d'entrée">
+        <legend class="fr-fieldset__legend" for="date-entree">Date d'entrée</legend>
+        <input class="fr-input" type="date" id="date-entree">
+      </fieldset>
+
+      <fieldset class="fr-fieldset" aria-label="Sexe">
+        <legend class="fr-fieldset__legend" id="sexe-legend">Sexe</legend>
+        <div class="fr-grid-row fr-grid-row--gutters fr-fieldset__content">
+          <div class="fr-col-5 fr-col-md-2 fr-radio-group fr-radio-group--sm">
+            <input id="sexe-f" type="radio" name="sexe" value="0">
+            <label class="choice" for="sexe-f"><span>Féminin</span></label>
+          </div>
+          <div class="fr-col-5 fr-col-md-2 fr-radio-group fr-radio-group--sm">
+            <input id="sexe-m" type="radio" name="sexe" value="1">
+            <label class="choice" for="sexe-m"><span>Masculin</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="fr-fieldset" aria-label="Nationalité">
+        <div class="fr-input-group">
+          <legend class="fr-fieldset__legend" for="nationality">Nationalité</legend>
+          <input class="fr-input" spellcheck="false" name="nationality" id="nationality" type="text">
+        </div>
+      </fieldset>
+
+      <div class="fr-input-group">
+        <div class="fr-input-group">
+          <legend class="fr-fieldset__legend" for="departement-naissance">Département de naissance</legend>
+          <input class="fr-input" spellcheck="false" name="departement-naissance" id="departement-naissance" type="text">
+        </div>
+      </div>
+
+      <div class="fr-input-group">
+        <div class="fr-input-group">
+          <legend class="fr-fieldset__legend" for="commune-naissance">Commune de naissance</legend>
+          <input class="fr-input" spellcheck="false" name="commune-naissance" id="commune-naissance" type="text">
+        </div>
+      </div>
+
+      <div class="fr-input-group">
+        <legend class="fr-fieldset__legend" for="tel-1">
+          Numéro de téléphone
+          <span class="fr-hint-text">Format attendu : (+33) 1 22 33 44 55</span>
+        </legend>
+        <input class="fr-input" autocomplete="tel" id="tel-1" type="tel">
+        <div class="fr-messages-group" id="tel-1-messages" aria-live="assertive"></div>
+      </div>
+
+      <div class="fr-input-group">
+        <legend class="fr-fieldset__legend" for="email-1">
+          Adresse électronique
+          <span class="fr-hint-text">Format attendu : nom@email.fr</span>
+        </legend>
+        <input class="fr-input" name="email" autocomplete="on" id="email-1" type="email">
+      </div>
+
+      <div class="fr-checkbox-group">
+        <h3>Transport</h3>
+        <p>Type(s) de transport utilisé(s) pour se rendre au lycée :</p>
+      </div>
+      <fieldset class="fr-fieldset" id="transport" aria-labelledby="transport-legend" aria-describedby="transport-messages">
+        <legend id="transport-legend" class="fr-fieldset__legend">Transport</legend>
+        <div class="fr-fieldset__element fr-fieldset__element--inline">
+          <div class="fr-checkbox-group">
+            <input name="transport_filibus" id="transport-filibus" type="checkbox">
+            <label class="fr-label" for="transport-filibus">Filibus</label>
+          </div>
+        </div>
+        <div class="fr-fieldset__element fr-fieldset__element--inline">
+          <div class="fr-checkbox-group">
+            <input name="transport_sncf" id="transport-sncf" type="checkbox">
+            <label class="fr-label" for="transport-sncf">SNCF</label>
+          </div>
+        </div>
+        <div class="fr-fieldset__element fr-fieldset__element--inline">
+          <div class="fr-checkbox-group">
+            <input name="transport_autres" id="transport-autres" type="checkbox">
+            <label class="fr-label" for="transport-autres">Autres</label>
+          </div>
+        </div>
+        <div class="fr-messages-group" id="transport-messages" aria-live="assertive"></div>
+      </fieldset>
+
+      <h3>Scolarité pour cette année</h3>
+      <div class="fr-checkbox-group">
+        <input id="redoublement" type="checkbox" name="redoublement">
+        <label class="fr-fieldset__legend" for="redoublement">Redoublement</label>
+      </div>
+
+      <fieldset class="fr-fieldset" aria-label="Classe et spécialité">
+        <div class="fr-fieldset__element">
+          <div class="fr-input-group">
+            <legend class="fr-fieldset__legend" for="classe-1">Classe</legend>
+            <input class="fr-input" spellcheck="false" autocomplete="classe-1" name="classe-1" id="classe-1" type="text">
+          </div>
+        </div>
+        <div class="fr-fieldset__element">
+          <div class="fr-input-group">
+            <legend class="fr-fieldset__legend" for="specialite">Spécialité</legend>
+            <input class="fr-input" spellcheck="false" autocomplete="specialite" name="specialite" id="specialite" type="text">
+          </div>
+        </div>
+      </fieldset>
+
+      <h3>Langues</h3>
+      <fieldset class="fr-fieldset" aria-label="Langues">
+        <div class="fr-grid-row">
+          <div class="fr-fieldset__element">
+            <div class="fr-input-group">
+              <label class="fr-label" for="lv1">LV1</label>
+              <input class="fr-input" spellcheck="false" autocomplete="lv1" name="lv1" id="lv1" type="text">
+            </div>
+          </div>
+          <div class="fr-fieldset__element">
+            <div class="fr-input-group">
+              <label class="fr-label" for="lv2">LV2 (facultatif)</label>
+              <input class="fr-input" spellcheck="false" autocomplete="lv2" name="lv2" id="lv2" type="text">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="fr-text--bold">
+        Souhaitez-vous être membre de la MDL ?
+        <span class="fr-hint-text">(si oui, le jour de la rentrée, vous devez fournir un chèque de 10€ au nom de la MDL)</span>
+      </p>
+      <fieldset class="fr-fieldset" aria-label="MDL" id="mdl-fieldset">
+        <div class="fr-fieldset__element">
+          <div class="fr-radio-group">
+            <input type="radio" id="mdl-yes" name="mdl" value="yes">
+            <label class="fr-label" for="mdl-yes">Oui</label>
+          </div>
+        </div>
+        <div class="fr-fieldset__element">
+          <div class="fr-radio-group">
+            <input type="radio" id="mdl-no" name="mdl" value="no">
+            <label class="fr-label" for="mdl-no">Non</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="fr-text--bold">
+        Souhaitez-vous garder votre droit à l'image ?
+        <span class="fr-hint-text">(si oui, vous n'apparaîtrez sur aucune photo de l'établissement)</span>
+      </p>
+      <fieldset class="fr-fieldset" aria-label="Droit à l'image" id="img-fieldset">
+        <div class="fr-fieldset__element">
+          <div class="fr-radio-group">
+            <input type="radio" id="img-yes" name="img" value="yes">
+            <label class="fr-label" for="img-yes">Oui</label>
+          </div>
+        </div>
+        <div class="fr-fieldset__element">
+          <div class="fr-radio-group">
+            <input type="radio" id="img-no" name="img" value="no">
+            <label class="fr-label" for="img-no">Non</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="fr-mt-4w">
+        <button class="fr-btn" type="submit">Suivant</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+ 
+{% endblock %}
