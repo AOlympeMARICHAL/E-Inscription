@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class IndexController extends AbstractController
+class FormController extends AbstractController
 {
     #[Route('/inscription', name: 'app_inscription')]
     public function index(): Response
@@ -16,9 +17,9 @@ class IndexController extends AbstractController
         return $this->render('inscription/un.html.twig');
     }
 
-    #[Route("/inscription/getForm", name: "app_inscription_getForm")]
-    public function getForm(Request $request, ManagerRegistry $doctrine)
+    #[Route("/inscription/getPage1", name: "app_inscription_getPage1")]
+    public function page1(Request $request, EntityManagerInterface $em)
     {
-        
+        // $form = $this->createForm();
     }
 }
