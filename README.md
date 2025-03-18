@@ -32,16 +32,18 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 <h4>Vérifiez l'état de MariaDB :</h4>
+
 ```bash
-`sudo systemctl status mariadb` 
-  ```
+sudo systemctl status mariadb
+```
 
 <h4>Démarrez et activez MariaDB au démarrage : </h4>
-
+```bash
 `sudo systemctl start mariadb` 
-`sudo systemctl enable mariadb` 
-  
 
+  
+`sudo systemctl enable mariadb`   
+  ```
 `Sécurisez l'installation de MariaDB :` 
 
 `sudo mysql_secure_installation `
