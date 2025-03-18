@@ -17,56 +17,53 @@
 
 <h2> Installation Mariadb</h2>
 
+`Installez MariaDB :` 
 
+`sudo apt install mariadb-server -y` 
   
 
-Installez MariaDB : 
+`Vérifiez l'état de MariaDB : `
 
-sudo apt install mariadb-server -y 
+`sudo systemctl status mariadb` 
   
 
-Vérifiez l'état de MariaDB : 
+`Démarrez et activez MariaDB au démarrage :` 
 
-sudo systemctl status mariadb 
+`sudo systemctl start mariadb` 
+`sudo systemctl enable mariadb` 
   
 
-Démarrez et activez MariaDB au démarrage : 
+`Sécurisez l'installation de MariaDB :` 
 
-sudo systemctl start mariadb 
-sudo systemctl enable mariadb 
+`sudo mysql_secure_installation `
   
 
-Sécurisez l'installation de MariaDB : 
+`Définissez un mot de passe pour l'utilisateur root.` 
 
-sudo mysql_secure_installation 
+`Désactivez les connexions root distantes. `
+
+`Configurez l'adresse de liaison (bind address) :` 
+
+`sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf `
   
 
-Définissez un mot de passe pour l'utilisateur root. 
-
-Désactivez les connexions root distantes. 
-
-Configurez l'adresse de liaison (bind address) : 
-
-sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf 
+`Modifiez ou ajoutez la ligne suivante : bind_address = 0.0.0.0` 
   
 
-Modifiez ou ajoutez la ligne suivante : bind_address = 0.0.0.0 
+`Redémarrez MariaDB : `
+
+`sudo systemctl restart mariadb` 
   
 
-Redémarrez MariaDB : 
+`Créez un utilisateur et accordez des privilèges : Connectez-vous à MariaDB :` 
 
-sudo systemctl restart mariadb 
+`sudo mysql -u root -p `
   
 
-Créez un utilisateur et accordez des privilèges : Connectez-vous à MariaDB : 
-
-sudo mysql -u root -p 
+`Créez un utilisateur : CREATE USER 'nouvel_utilisateur'@'%' IDENTIFIED BY 'mot_de_passe';` 
   
 
-Créez un utilisateur : CREATE USER 'nouvel_utilisateur'@'%' IDENTIFIED BY 'mot_de_passe'; 
+`Accordez tous les privilèges : GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION;` 
   
 
-Accordez tous les privilèges : GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION; 
-  
-
-Quittez MariaDB : EXIT;
+`Quittez MariaDB : EXIT;`
