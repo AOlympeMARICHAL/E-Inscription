@@ -46,10 +46,11 @@ sudo systemctl status mariadb
 
 `sudo systemctl enable mariadb`   
   ```
-`Sécurisez l'installation de MariaDB :` 
+<h4> Sécurisez l'installation de MariaDB : </h4>
 
+  ```bash
 `sudo mysql_secure_installation `
-  
+  ```
 
 `Définissez un mot de passe pour l'utilisateur root.` 
 
