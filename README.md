@@ -9,6 +9,64 @@
 `MariaDB (Lastest version)`<br>
 `-DSRF : https://github.com/GouvernementFR/dsfr/releases/tag/v1.13.0` <br>
 `- node.js` <br>
-Pour installer les composant nécéssaires :
+# Pour installer les composant nécéssaires :
 
-`composer install`
+ `Mettez à jour les paquets : `
+
+`sudo apt update && sudo apt upgrade -y` 
+
+<h2> Installation Mariadb</h2>
+
+
+  
+
+Installez MariaDB : 
+
+sudo apt install mariadb-server -y 
+  
+
+Vérifiez l'état de MariaDB : 
+
+sudo systemctl status mariadb 
+  
+
+Démarrez et activez MariaDB au démarrage : 
+
+sudo systemctl start mariadb 
+sudo systemctl enable mariadb 
+  
+
+Sécurisez l'installation de MariaDB : 
+
+sudo mysql_secure_installation 
+  
+
+Définissez un mot de passe pour l'utilisateur root. 
+
+Désactivez les connexions root distantes. 
+
+Configurez l'adresse de liaison (bind address) : 
+
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf 
+  
+
+Modifiez ou ajoutez la ligne suivante : bind_address = 0.0.0.0 
+  
+
+Redémarrez MariaDB : 
+
+sudo systemctl restart mariadb 
+  
+
+Créez un utilisateur et accordez des privilèges : Connectez-vous à MariaDB : 
+
+sudo mysql -u root -p 
+  
+
+Créez un utilisateur : CREATE USER 'nouvel_utilisateur'@'%' IDENTIFIED BY 'mot_de_passe'; 
+  
+
+Accordez tous les privilèges : GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION; 
+  
+
+Quittez MariaDB : EXIT;
