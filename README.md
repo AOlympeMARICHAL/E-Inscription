@@ -22,12 +22,12 @@
 `sudo apt install mariadb-server -y` 
   
 
-<h6>Vérifiez l'état de MariaDB :</h6>
+<h5>Vérifiez l'état de MariaDB :</h5>
 
 `sudo systemctl status mariadb` 
   
 
-`Démarrez et activez MariaDB au démarrage :` 
+<h5>Démarrez et activez MariaDB au démarrage : </h5>
 
 `sudo systemctl start mariadb` 
 `sudo systemctl enable mariadb` 
