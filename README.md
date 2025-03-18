@@ -22,7 +22,7 @@
 `sudo apt install mariadb-server -y` 
   
 
-`Vérifiez l'état de MariaDB : `
+<h6>Vérifiez l'état de MariaDB :</h6>
 
 `sudo systemctl status mariadb` 
   
