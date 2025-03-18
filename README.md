@@ -27,14 +27,14 @@ sudo apt update && sudo apt upgrade -y
 <h2> Installation Mariadb</h2>
 
 `Installez MariaDB :` 
-
+```bash
 `sudo apt install mariadb-server -y` 
-  
+```
 
 <h4>Vérifiez l'état de MariaDB :</h4>
-
+```bash
 `sudo systemctl status mariadb` 
-  
+  ```
 
 <h4>Démarrez et activez MariaDB au démarrage : </h4>
 
