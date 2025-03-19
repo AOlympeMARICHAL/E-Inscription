@@ -134,7 +134,7 @@ sudo systemctl start apache2
 sudo ufw reload 
 ```
 ```bash
-–sudo systemctl status apache2 
+sudo systemctl status apache2 
 ```
 ```bash
 sudo systemctl start apache2 
