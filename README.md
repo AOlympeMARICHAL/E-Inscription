@@ -101,12 +101,39 @@ EXIT;
 
 ```bash
 sudo apt update 
-
 sudo apt install apache2 
-
 sudo apt install php libapache2-mod-php php-mysql php-xml php-curl php-zip php-mbstring  
-
-sudo apt install composer 
+sudo apt install composer
+sudo apt install curl
+sudo apt install ufw
 
 ```
+
+curl -sS https://get.symfony.com/cli/installer | bash 
+
+sudo mv ~/.symfony*/bin/symfony /usr/local/bin/symfony 
+
+ 
+
+sudo apachectl -v 
+
+sudo ufw allow 80 
+
+sudo ufw restart 
+
+sudo systemctl start apache2 
+
+sudo ufw reload 
+
+–sudo systemctl status apache2 
+
+sudo systemctl start apache2 
+
+sudo system restart apache2 
+
+sudo   
+
+Transférer du projet dans www sur la VM 
+
+ 
 
