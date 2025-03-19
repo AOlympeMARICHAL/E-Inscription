@@ -76,7 +76,7 @@ sudo systemctl restart mariadb
  <h5>`Créez un utilisateur et accordez des privilèges : Connectez-vous à MariaDB :` </h5> 
 
 ```bash
-`sudo mysql -u root -p 
+sudo mysql -u root -p 
   ```
 
  <h5>`Créez un utilisateur : </h5> 
