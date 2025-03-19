@@ -142,7 +142,13 @@ sudo systemctl start apache2
 ```bash
 sudo system restart apache2 
 ```
-Transférer du projet dans www sur la VM à l'aide d'un SFTP
+Transférer du projet dans la VM à l'aide d'un SFTP
+puis 
+
+```bash
+cd /endroit/du/projet
+sudo mv projet/ /var/www
+```
 
 ```bash
 cd /var/www
