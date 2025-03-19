@@ -96,3 +96,17 @@ GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION;
 EXIT;
 ```
 ### Installation PHP et APACHE2
+
+<h5>Installation de apache2 , php , composer uwf</h5>
+
+```bash
+sudo apt update 
+
+sudo apt install apache2 
+
+sudo apt install php libapache2-mod-php php-mysql php-xml php-curl php-zip php-mbstring  
+
+sudo apt install composer 
+
+```
+
