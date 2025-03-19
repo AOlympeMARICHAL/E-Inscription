@@ -27,7 +27,7 @@ sudo apt update && sudo apt upgrade -y
 
 `Installez MariaDB :` 
 ```bash
-`sudo apt install mariadb-server -y` 
+sudo apt install mariadb-server -y
 ```
 
 <h4>Vérifiez l'état de MariaDB :</h4>
@@ -39,16 +39,16 @@ sudo systemctl status mariadb
 <h4>Démarrez et activez MariaDB au démarrage : </h4>
 
   ```bash
-`sudo systemctl start mariadb` 
+sudo systemctl start mariadb 
   ```
 ```bash
 
-`sudo systemctl enable mariadb`   
+sudo systemctl enable mariadb   
   ```
 <h4> Sécurisez l'installation de MariaDB : </h4>
 
   ```bash
-`sudo mysql_secure_installation `
+sudo mysql_secure_installation 
   ```
 
 <h5>Définissez un mot de passe pour l'utilisateur root.</h5> 
@@ -58,23 +58,23 @@ sudo systemctl status mariadb
 <h5> Configurez l'adresse de liaison (bind address) : </h5>
 
 ```bash
-`sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf `
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
   ```
 `Modifiez ou ajoutez la ligne suivante :
 ```bash
- bind_address = 0.0.0.0` 
+ bind_address = 0.0.0.0 
   ```
 
 <h5>Redémarrez MariaDB : </h5>
   
   ```bash
-sudo systemctl restart mariadb` 
+sudo systemctl restart mariadb 
   ```
 
  <h5>`Créez un utilisateur et accordez des privilèges : Connectez-vous à MariaDB :` </h5> 
 
 ```bash
-`sudo mysql -u root -p `
+`sudo mysql -u root -p 
   ```
 
  <h5>`Créez un utilisateur : </h5> 
@@ -86,7 +86,7 @@ CREATE USER 'nouvel_utilisateur'@'%' IDENTIFIED BY 'mot_de_passe';
  <h5>`Accordez tous les privilèges :` </h5>
  
  ```bash
-GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION;` 
+GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION; 
  ``` 
 
  <h5>`Quittez MariaDB : </h5>
