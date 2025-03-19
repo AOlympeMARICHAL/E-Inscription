@@ -16,7 +16,7 @@ Merci de **lire la documentation** avant d’installer les composants.
 - **DSRF** : [Lien vers la release](https://github.com/GouvernementFR/dsfr/releases/tag/v1.13.0)
 - **Node.js**
 
----
+--- 
 
 ## ⚙️ Installation des composants
 
@@ -142,7 +142,11 @@ sudo systemctl start apache2
 ```bash
 sudo system restart apache2 
 ```
-Transférer du projet dans www sur la VM 
+Transférer du projet dans www sur la VM à l'aide d'un SFTP
+
+```bash
+cd /var/www
+```
 
  
 
