@@ -89,4 +89,8 @@ CREATE USER 'nouvel_utilisateur'@'%' IDENTIFIED BY 'mot_de_passe';
 GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION;` 
  ``` 
 
-`Quittez MariaDB : EXIT;`
+ <h5>`Quittez MariaDB : </h5>
+
+```bash
+EXIT;
+```
