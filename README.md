@@ -95,3 +95,4 @@ GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION;
 ```bash
 EXIT;
 ```
+### Installation PHP et APACHE2
