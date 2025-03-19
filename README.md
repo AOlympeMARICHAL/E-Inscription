@@ -23,7 +23,7 @@ Merci de **lire la documentation** avant d’installer les composants.
 sudo apt update && sudo apt upgrade -y
 
 ```
-<h2> Installation Mariadb</h2>
+<h2> 🗄 Installation Mariadb</h2>
 
 `Installez MariaDB :` 
 ```bash
