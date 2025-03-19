@@ -127,16 +127,21 @@ sudo ufw allow 80
 ```bash
 sudo ufw restart 
 ```
-
+```bash
 sudo systemctl start apache2 
-
+```
+```bash
 sudo ufw reload 
-
+```
+```bash
 –sudo systemctl status apache2 
-
+```
+```bash
 sudo systemctl start apache2 
-
+```
+```bash
 sudo system restart apache2 
+```
 
 sudo   
 
