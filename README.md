@@ -60,9 +60,10 @@ sudo systemctl status mariadb
 ```bash
 `sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf `
   ```
-
-`Modifiez ou ajoutez la ligne suivante : bind_address = 0.0.0.0` 
-  
+`Modifiez ou ajoutez la ligne suivante :
+```bash
+ bind_address = 0.0.0.0` 
+  ```
 
 `Redémarrez MariaDB : `
 
