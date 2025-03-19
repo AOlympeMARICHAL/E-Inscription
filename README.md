@@ -8,7 +8,7 @@
 Pour l’installation des applications ainsi que de la base de données, il est nécessaire d’avoir ces éléments.  
 Merci de **lire la documentation** avant d’installer les composants.
 
-- ** Debian12 **
+- **Debian12**
 - **Symfony CLI**
 - **PHP** (Dernière version)
 - **MariaDB** (Dernière version)
