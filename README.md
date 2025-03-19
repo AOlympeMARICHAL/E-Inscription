@@ -65,20 +65,28 @@ sudo systemctl status mariadb
  bind_address = 0.0.0.0` 
   ```
 
-`Redémarrez MariaDB : `
-
-`sudo systemctl restart mariadb` 
+<h5>Redémarrez MariaDB : </h5>
   
+  ```bash
+sudo systemctl restart mariadb` 
+  ```
 
-`Créez un utilisateur et accordez des privilèges : Connectez-vous à MariaDB :` 
+ <h5>`Créez un utilisateur et accordez des privilèges : Connectez-vous à MariaDB :` </h5> 
 
+```bash
 `sudo mysql -u root -p `
-  
+  ```
 
-`Créez un utilisateur : CREATE USER 'nouvel_utilisateur'@'%' IDENTIFIED BY 'mot_de_passe';` 
-  
+ <h5>`Créez un utilisateur : </h5> 
 
-`Accordez tous les privilèges : GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION;` 
-  
+```bash
+CREATE USER 'nouvel_utilisateur'@'%' IDENTIFIED BY 'mot_de_passe'; 
+  ```
+
+ <h5>`Accordez tous les privilèges :` </h5>
+ 
+ ```bash
+GRANT ALL PRIVILEGES ON *.* TO 'nouvel_utilisateur'@'%' WITH GRANT OPTION;` 
+ ``` 
 
 `Quittez MariaDB : EXIT;`
