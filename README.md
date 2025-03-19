@@ -149,10 +149,19 @@ puis
 cd /endroit/du/projet
 sudo mv projet/ /var/www
 ```
+<h4>Installation du projet avec composer</h4>
 
 ```bash
-cd /var/www
+cd /var/www/projectname
+composer install
+composer update
 ```
+(Pensez à modifier l'ip et les infos de connextion dans le .env)
+<h4>Activation dans Apache2</h4>
 
- 
+Allez dans 
+```bash
+sudo nano /etc/apache2/sites-available/
+```
+ modifier la ligne DocumentRoot /var/www/nomduprojet
 
