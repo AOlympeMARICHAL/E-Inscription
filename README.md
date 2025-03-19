@@ -51,14 +51,15 @@ sudo systemctl status mariadb
 `sudo mysql_secure_installation `
   ```
 
-`Définissez un mot de passe pour l'utilisateur root.` 
+<h5>Définissez un mot de passe pour l'utilisateur root.</h5> 
 
-`Désactivez les connexions root distantes. `
+<h5> Désactivez les connexions root distantes. </h5>
 
-`Configurez l'adresse de liaison (bind address) :` 
+<h5> Configurez l'adresse de liaison (bind address) : </h5>
 
+```bash
 `sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf `
-  
+  ```
 
 `Modifiez ou ajoutez la ligne suivante : bind_address = 0.0.0.0` 
   
