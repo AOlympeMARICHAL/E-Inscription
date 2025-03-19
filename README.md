@@ -142,9 +142,6 @@ sudo systemctl start apache2
 ```bash
 sudo system restart apache2 
 ```
-
-sudo   
-
 Transférer du projet dans www sur la VM 
 
  
