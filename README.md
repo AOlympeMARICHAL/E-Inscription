@@ -110,17 +110,23 @@ sudo apt install ufw
 
 ```
 
+```bash
 curl -sS https://get.symfony.com/cli/installer | bash 
+```
 
+```bash
 sudo mv ~/.symfony*/bin/symfony /usr/local/bin/symfony 
-
+```
  
-
+```bash
 sudo apachectl -v 
-
+```
+```bash
 sudo ufw allow 80 
-
+```
+```bash
 sudo ufw restart 
+```
 
 sudo systemctl start apache2 
 
