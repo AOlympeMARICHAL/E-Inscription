@@ -106,7 +106,6 @@ sudo apt install apache2
 sudo apt install php libapache2-mod-php php-mysql php-xml php-curl php-zip php-mbstring  
 sudo apt install composer
 sudo apt install curl
-sudo apt install ufw
 
 ```
 
@@ -121,12 +120,7 @@ sudo mv ~/.symfony*/bin/symfony /usr/local/bin/symfony
 ```bash
 sudo apachectl -v 
 ```
-```bash
-sudo ufw allow 80 
-```
-```bash
-sudo ufw restart 
-```
+
 ```bash
 sudo systemctl start apache2 
 ```
@@ -154,7 +148,13 @@ Dans Dynamic Extention activez les extentions suivante : <br>
 `extention=mysqli`<br>
 `extention=openssl`<br>
 `extention=pdo_mysql`<br>
-Transférer du projet dans la VM à l'aide d'un SFTP
+
+Transférer du projet dans la VM à l'aide d'un SFTP 
+
+FAIRE LA DOC
+
+
+
 puis 
 
 ```bash
