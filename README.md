@@ -151,7 +151,7 @@ Dans Dynamic Extention activez les extentions suivante : <br>
 
 Transférer du projet dans la VM à l'aide d'un SFTP 
 
-Connecter vous à la machine via Filezilla puis mettre le dossier du projet à la racine puis sur votre machine : 
+Connecter vous à la machine via votre outils de transfert de fichier favoris puis mettre le dossier du projet à la racine puis sur votre machine : 
 puis 
 ```bash
 cd /endroit/duprojet/
