@@ -181,12 +181,12 @@ Votre fichier devrait être similaire à celui-ci :
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-Modifier/crée le .htacess
+Modifier/crée le .htaccess
 
 ```bash
 cd /var/www/E-Inscription/public
 mkdir .htaccess
-sudo nano .htacess
+sudo nano .htaccess
 ```
 
 Ajouter ceci dans le .htaccess
