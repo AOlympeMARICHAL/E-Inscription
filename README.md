@@ -163,5 +163,37 @@ Allez dans
 ```bash
 sudo nano /etc/apache2/sites-available/
 ```
- modifier la ligne DocumentRoot /var/www/nomduprojet
+Modifier/crée le .htacess
 
+```bash
+cd /var/www/E-Inscription/public
+mkdir .htaccess
+sudo nano .htacess
+```
+
+Ajouter ceci dans le .htaccess
+```bash
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Définir le répertoire racine
+    RewriteBase /
+
+    # Rediriger tout sauf les fichiers et dossiers existants vers index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+
+# Désactiver l'indexation des dossiers
+Options -Indexes
+
+# Optimisation pour Symfony (si applicable)
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+```
