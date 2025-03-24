@@ -29,6 +29,9 @@
       <span class="fr-text--bold">Étape suivante :</span> Scolarité antérieur
     </p>
 </div>
+
+{# ----------------------------------------------------------- #}
+{{ form_start(individuForm) }}
  <div class="sp-perso sp-perso-content fr-mb-4w">
     <div class="sp-perso-header">
       <h3 class="fr-h3 sp-perso-title sp-accent">Identité de l'élève</h3>
@@ -37,64 +40,16 @@
       <div class="fr-input-group fr-grid-row">
         <fieldset class="fr-fieldset" aria-label="Nom et prénom">
           <div class="fr-fieldset__element">
-            <legend class="fr-fieldset__legend" for="nomEleve">Nom</legend>
-            <input class="fr-input" spellcheck="false" name="nomEleve" id="nomEleve" type="text">
+            <legend class="fr-fieldset__legend">Nom</legend>
+            {# --------------input ici------------- #}
+            {{ form_row(individuForm.name, {'attr': {'class': 'fr-input'} })  }}
           </div>
           <div class="fr-fieldset__element">
-            <legend class="fr-fieldset__legend" for="prenomEleve">Prénom</legend>
-            <input class="fr-input" spellcheck="false" name="prenomEleve" id="prenomEleve" type="text">
+            <legend class="fr-fieldset__legend">Prénom</legend>
+            {# --------------input ici------------- #}
+            {{ form_row(individuForm.lastname, {'attr': {'class': 'fr-input'} })  }}
           </div>
         </fieldset>
-      </div>
-
-      <fieldset class="fr-fieldset" aria-label="Numéro de Sécurité Social">
-        <div class="fr-fieldset__element">
-          <legend class="fr-fieldset__legend" for="secu">
-            Numéro de Sécurité Social
-            <span class="fr-hint-text">Seulement pour les apprentis</span>
-          </legend>
-          <input class="fr-input" autocomplete="secu" id="secu" type="tel" placeholder="ex: 2 94 03 75 120 005 22">
-        </div>
-      </fieldset>
-
-      <fieldset class="fr-fieldset" aria-label="Date d'entrée">
-        <legend class="fr-fieldset__legend" for="date-entree">Date d'entrée</legend>
-        <input class="fr-input" type="date" id="date-entree">
-      </fieldset>
-
-      <fieldset class="fr-fieldset" aria-label="Sexe">
-        <legend class="fr-fieldset__legend" id="sexe-legend">Sexe</legend>
-        <div class="fr-grid-row fr-grid-row--gutters fr-fieldset__content">
-          <div class="fr-col-5 fr-col-md-2 fr-radio-group fr-radio-group--sm">
-            <input id="sexe-f" type="radio" name="sexe" value="0">
-            <label class="choice" for="sexe-f"><span>Féminin</span></label>
-          </div>
-          <div class="fr-col-5 fr-col-md-2 fr-radio-group fr-radio-group--sm">
-            <input id="sexe-m" type="radio" name="sexe" value="1">
-            <label class="choice" for="sexe-m"><span>Masculin</span></label>
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset class="fr-fieldset" aria-label="Nationalité">
-        <div class="fr-input-group">
-          <legend class="fr-fieldset__legend" for="nationality">Nationalité</legend>
-          <input class="fr-input" spellcheck="false" name="nationality" id="nationality" type="text">
-        </div>
-      </fieldset>
-
-      <div class="fr-input-group">
-        <div class="fr-input-group">
-          <legend class="fr-fieldset__legend" for="departement-naissance">Département de naissance</legend>
-          <input class="fr-input" spellcheck="false" name="departement-naissance" id="departement-naissance" type="text">
-        </div>
-      </div>
-
-      <div class="fr-input-group">
-        <div class="fr-input-group">
-          <legend class="fr-fieldset__legend" for="commune-naissance">Commune de naissance</legend>
-          <input class="fr-input" spellcheck="false" name="commune-naissance" id="commune-naissance" type="text">
-        </div>
       </div>
 
       <div class="fr-input-group">
@@ -102,67 +57,91 @@
           Numéro de téléphone
           <span class="fr-hint-text">Format attendu : (+33) 1 22 33 44 55</span>
         </legend>
-        <input class="fr-input" autocomplete="tel" id="tel-1" type="tel">
+         {# --------------input ici------------- #}
+            {{ form_row(individuForm.mobilePhone, {'attr': {'class': 'fr-input'} })  }}
         <div class="fr-messages-group" id="tel-1-messages" aria-live="assertive"></div>
       </div>
 
       <div class="fr-input-group">
-        <legend class="fr-fieldset__legend" for="email-1">
+        <legend class="fr-fieldset__legend">
           Adresse électronique
           <span class="fr-hint-text">Format attendu : nom@email.fr</span>
         </legend>
-        <input class="fr-input" name="email" autocomplete="on" id="email-1" type="email">
+        {# --------------input ici------------- #}
+            {{ form_row(individuForm.email, {'attr': {'class': 'fr-input'} })  }}
       </div>
-
-      <div class="fr-checkbox-group">
-        <h3>Transport</h3>
-        <p>Type(s) de transport utilisé(s) pour se rendre au lycée :</p>
+      <div class="fr-input-group">
+        <legend class="fr-fieldset__legend">
+          Ville
+        </legend>
+        {# --------------input ici------------- #}
+            {{ form_row(individuForm.city, {'attr': {'class': 'fr-input'} })  }}
       </div>
-      <fieldset class="fr-fieldset" id="transport" aria-labelledby="transport-legend" aria-describedby="transport-messages">
-        <legend id="transport-legend" class="fr-fieldset__legend">Transport</legend>
-        <div class="fr-fieldset__element fr-fieldset__element--inline">
-          <div class="fr-checkbox-group">
-            <input name="transport_filibus" id="transport-filibus" type="checkbox">
-            <label class="fr-label" for="transport-filibus">Filibus</label>
-          </div>
-        </div>
-        <div class="fr-fieldset__element fr-fieldset__element--inline">
-          <div class="fr-checkbox-group">
-            <input name="transport_sncf" id="transport-sncf" type="checkbox">
-            <label class="fr-label" for="transport-sncf">SNCF</label>
-          </div>
-        </div>
-        <div class="fr-fieldset__element fr-fieldset__element--inline">
-          <div class="fr-checkbox-group">
-            <input name="transport_autres" id="transport-autres" type="checkbox">
-            <label class="fr-label" for="transport-autres">Autres</label>
-          </div>
-        </div>
-        <div class="fr-messages-group" id="transport-messages" aria-live="assertive"></div>
-      </fieldset>
-
-      <h3>Scolarité pour cette année</h3>
-      <div class="fr-checkbox-group">
-        <input id="redoublement" type="checkbox" name="redoublement">
-        <label class="fr-fieldset__legend" for="redoublement">Redoublement</label>
+      <div class="fr-input-group">
+        <legend class="fr-fieldset__legend">
+          Commune
+        </legend>
+        {# --------------input ici------------- #}
+            {{ form_row(individuForm.commune, {'attr': {'class': 'fr-input'} })  }}
       </div>
+      <div class="fr-input-group">
+        <legend class="fr-fieldset__legend">
+          Adresse
+        </legend>
+        {# --------------input ici------------- #}
+            {{ form_row(individuForm.address, {'attr': {'class': 'fr-input'} })  }}
+      </div>
+    {{ form_end(individuForm, {'render_rest': false}) }}
 
-      <fieldset class="fr-fieldset" aria-label="Classe et spécialité">
-        <div class="fr-fieldset__element">
-          <div class="fr-input-group">
-            <legend class="fr-fieldset__legend" for="classe-1">Classe</legend>
-            <input class="fr-input" spellcheck="false" autocomplete="classe-1" name="classe-1" id="classe-1" type="text">
-          </div>
-        </div>
-        <div class="fr-fieldset__element">
-          <div class="fr-input-group">
-            <legend class="fr-fieldset__legend" for="specialite">Spécialité</legend>
-            <input class="fr-input" spellcheck="false" autocomplete="specialite" name="specialite" id="specialite" type="text">
-          </div>
-        </div>
-      </fieldset>
+    {# --------------Deuxième partie du form (source probleme)------------- #}
+    {{ form_start(eleveForm) }}
+    <fieldset class="fr-fieldset">
+    <legend class="fr-fieldset__legend">Sexe</legend>
+      <div class="fr-fieldset__content ">
+        {{ form_row(eleveForm.sexe) }}
+      </div>
+    </fieldset>
 
-      <h3>Langues</h3>
+    <h3>Transport</h3>
+    <p>Type(s) de transport utilisé(s) pour se rendre au lycée :</p>
+
+    <fieldset class="fr-fieldset">
+      <div class="fr-fieldset__content ">
+        {{ form_row(eleveForm.transport) }}
+      </div>
+    </fieldset>
+
+    <h3>Scolarité pour cette année</h3>
+
+    <fieldset class="fr-fieldset">
+    <label class="fr-fieldset__legend" for="redoublement">Redoublement</label>
+      <div class="fr-fieldset__content ">
+        {{ form_row(eleveForm.redoublement) }}
+      </div>
+    </fieldset>
+
+    <fieldset class="fr-fieldset" aria-label="Classe et spécialité">
+    <div class="fr-fieldset__element">
+      <div class="fr-input-group">
+        <legend class="fr-fieldset__legend">Classe</legend>
+         {{ form_row(eleveForm.cours) }}
+      </div>
+      <div class="fr-input-group">
+        <legend class="fr-fieldset__legend">Spécialité</legend>
+         {{ form_row(eleveForm.speciality) }}
+      </div>
+    </div>  
+    </fieldset>
+
+    <h3>Langues</h3>
+
+    <fieldset class="fr-fieldset" aria-label="Langues">
+
+    </fieldset>
+
+    {{ form_end(eleveForm, {'render_rest': false}) }}
+
+      
       <fieldset class="fr-fieldset" aria-label="Langues">
         <div class="fr-grid-row">
           <div class="fr-fieldset__element">
