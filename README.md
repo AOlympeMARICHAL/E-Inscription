@@ -151,14 +151,10 @@ Dans Dynamic Extention activez les extentions suivante : <br>
 
 Transférer du projet dans la VM à l'aide d'un SFTP 
 
-FAIRE LA DOC
-
-
-
+Connecter vous à la machine via Filezilla puis mettre le dossier du projet à la racine puis sur votre machine : 
 puis 
-
 ```bash
-cd /endroit/du/projet
+cd /endroit/duprojet/
 sudo mv projet/ /var/www
 ```
 <h4>Installation du projet avec composer</h4>
@@ -226,4 +222,4 @@ Options -Indexes
     Header set X-Content-Type-Options "nosniff"
 </IfModule>
 ```
-```
+```sudo systemctl restart apache2```
