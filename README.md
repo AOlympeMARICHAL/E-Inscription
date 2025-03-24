@@ -163,6 +163,23 @@ Allez dans
 ```bash
 sudo nano /etc/apache2/sites-available/
 ```
+Votre fichier devrait être similaire à celui-ci : 
+
+```bash
+<VirtualHost *:80>
+    ServerAdmin 172.16.119.8
+    DocumentRoot /var/www/E-Inscription/public
+
+    <Directory /var/www/E-Inscription/public>
+        AllowOverride All
+        Require all granted
+        FallbackResource /index.php
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
 Modifier/crée le .htacess
 
 ```bash
@@ -195,5 +212,5 @@ Options -Indexes
     Header set X-XSS-Protection "1; mode=block"
     Header set X-Content-Type-Options "nosniff"
 </IfModule>
-
+```
 ```
