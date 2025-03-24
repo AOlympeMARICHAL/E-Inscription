@@ -25,7 +25,14 @@ class FormController extends AbstractController
     #[Route('/inscription', name: 'app_inscription')]
     public function index(): Response
     {
-        return $this->render('inscription/un.html.twig');
+        $individu = new Individu;
+        $individuForm = $this->createForm(IndividuType::class, $individu);
+        $eleve = new Eleve;
+        $eleveForm = $this->createForm(EleveType::class, $eleve);
+        return $this->render('inscription/un.html.twig', array(
+            'individuForm' => $individuForm,
+            'eleveForm' => $eleveForm
+        ));
     }
 
     #[Route("/inscription/getPage1", name: "app_inscription_getPage1")]
@@ -40,6 +47,6 @@ class FormController extends AbstractController
             'individuForm' => $individuForm,
             'eleveForm' => $eleveForm
         ));
-        
+
     }
 }
