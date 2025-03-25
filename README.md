@@ -106,8 +106,6 @@ sudo apt install apache2
 sudo apt install php libapache2-mod-php php-mysql php-xml php-curl php-zip php-mbstring  
 sudo apt install composer
 sudo apt install curl
-sudo apt install ufw
-
 ```
 
 ```bash
@@ -121,12 +119,7 @@ sudo mv ~/.symfony*/bin/symfony /usr/local/bin/symfony
 ```bash
 sudo apachectl -v 
 ```
-```bash
-sudo ufw allow 80 
-```
-```bash
-sudo ufw restart 
-```
+
 ```bash
 sudo systemctl start apache2 
 ```
@@ -166,9 +159,15 @@ sudo mv projet/ /var/www
 ```bash
 cd /var/www/projectname
 composer install
+```
+Faite Y à chaque message
+
+```bash
 composer update
 composer require symfony/apache-pack
 ```
+Faite Y à chaque message
+
 (Pensez à modifier l'ip et les infos de connextion dans le .env et de le mettre APP_ENV = prod )
 <h4>Activation dans Apache2</h4>
 
