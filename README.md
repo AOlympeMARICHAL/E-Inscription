@@ -135,18 +135,6 @@ sudo systemctl start apache2
 ```bash
 sudo system restart apache2 
 ```
-Activation des extentions php
-```bash
-sudo nano /etc/php/8.2/apache2/php.ini
-```
-Dans Dynamic Extention activez les extentions suivante : <br>
-`extention=curl`<br>
-`extention=ftp`<br>
-`extention=fileinfo`<br>
-`extention=intl`<br>
-`extention=mysqli`<br>
-`extention=openssl`<br>
-`extention=pdo_mysql`<br>
 Transférer du projet dans la VM à l'aide d'un SFTP
 puis 
 
