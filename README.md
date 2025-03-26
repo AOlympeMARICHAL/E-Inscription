@@ -102,10 +102,13 @@ EXIT;
 
 ```bash
 sudo apt update 
-sudo apt install apache2 
-sudo apt install php libapache2-mod-php php-mysql php-xml php-curl php-zip php-mbstring  
-sudo apt install composer
-sudo apt install curl
+sudo apt install apache2 -y
+sudo apt install php libapache2-mod-php php-mysql php-xml php-curl php-zip php-mbstring -y  
+sudo apt install composer -y
+sudo apt install curl -y
+sudo apt install node -y
+sudo apt install nodejs npm -y
+
 ```
 
 ```bash
@@ -123,9 +126,7 @@ sudo apachectl -v
 ```bash
 sudo systemctl start apache2 
 ```
-```bash
-sudo ufw reload 
-```
+
 ```bash
 sudo systemctl status apache2 
 ```
