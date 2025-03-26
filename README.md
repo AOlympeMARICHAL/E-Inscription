@@ -106,7 +106,6 @@ sudo apt install apache2
 sudo apt install php libapache2-mod-php php-mysql php-xml php-curl php-zip php-mbstring  
 sudo apt install composer
 sudo apt install curl
-
 ```
 
 ```bash
@@ -136,25 +135,11 @@ sudo systemctl start apache2
 ```bash
 sudo system restart apache2 
 ```
-Activation des extentions php
-```bash
-sudo nano /etc/php/8.2/apache2/php.ini
-```
-Dans Dynamic Extention activez les extentions suivante : <br>
-`extention=curl`<br>
-`extention=ftp`<br>
-`extention=fileinfo`<br>
-`extention=intl`<br>
-`extention=mysqli`<br>
-`extention=openssl`<br>
-`extention=pdo_mysql`<br>
-
-Transférer du projet dans la VM à l'aide d'un SFTP 
-
-Connecter vous à la machine via votre outils de transfert de fichier favoris puis mettre le dossier du projet à la racine puis sur votre machine : 
+Transférer du projet dans la VM à l'aide d'un SFTP
 puis 
+
 ```bash
-cd /endroit/duprojet/
+cd /endroit/du/projet
 sudo mv projet/ /var/www
 ```
 <h4>Installation du projet avec composer</h4>
@@ -162,9 +147,15 @@ sudo mv projet/ /var/www
 ```bash
 cd /var/www/projectname
 composer install
+```
+Faite Y à chaque message
+
+```bash
 composer update
 composer require symfony/apache-pack
 ```
+Faite Y à chaque message
+
 (Pensez à modifier l'ip et les infos de connextion dans le .env et de le mettre APP_ENV = prod )
 <h4>Activation dans Apache2</h4>
 
@@ -222,4 +213,4 @@ Options -Indexes
     Header set X-Content-Type-Options "nosniff"
 </IfModule>
 ```
-```sudo systemctl restart apache2```
+```
