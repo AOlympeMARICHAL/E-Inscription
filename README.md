@@ -154,7 +154,7 @@ Faite Y à chaque message
 composer update
 composer require symfony/apache-pack
 ```
-Faite Y à chaque message
+``Faite Y à chaque message``
 
 (Pensez à modifier l'ip et les infos de connextion dans le .env et de le mettre APP_ENV = prod )
 <h4>Activation dans Apache2</h4>
