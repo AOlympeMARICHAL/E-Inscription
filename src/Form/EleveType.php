@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -41,19 +42,16 @@ class EleveType extends AbstractType
                 }
 
             ])
-            ->add('redoublement', ChoiceType::class, [
-                'label' => ' ',
-                'expanded' => true, 
-                'multiple' => true,
-                'choices' => [
-                    'Redoublement' => true
-                ],
+            ->add('redoublement', CheckboxType::class, [
+                'label' => 'Redoublement',
+                'required' => false,
                 'attr' => [
-                'class' => 'fr-checkbox-group',
+                    'class' => 'fr-checkbox-group',
                 ]
             ])
             ->add('nationality')
-            ->add('dateBirth', null, [
+            ->add('dateBirth', DateType::class, [
+                'label' => ' ',
                 'widget' => 'single_text',
             ])
             ->add('departmentBirth')
@@ -80,10 +78,54 @@ class EleveType extends AbstractType
                     'class' => 'fr-input'
                 ],
             ])
-            ->add('lv1')
-            ->add('lv2')
-            ->add('mdl')
-            ->add('copyright')
+            ->add('lv1', TextType::class, [
+                'label' => ' ',
+                'attr' => [
+                    'class' => 'fr-input'
+                ],
+            ])
+            ->add('lv2', TextType::class, [
+                'label' => ' ',
+                'attr' => [
+                    'class' => 'fr-input'
+                ],
+            ])
+            ->add('mdl', ChoiceType::class, [
+                'label' => ' ',
+                'expanded' => true, 
+                'multiple' => false,
+                'choices' => [
+                    'Oui' => 1,
+                    'Non' => 0,
+                ],
+                'attr' => [
+                    'class' => 'fr-radio-rich',
+                ],
+                'choice_attr' => function ($choice, $key, $value) {
+                return [
+                    'class' => 'fr-radio-group',
+                    'id' => 'img-' . strtolower($value),
+                ];
+            }
+            ])
+            ->add('copyright', ChoiceType::class, [
+                'label' => ' ',
+                'expanded' => true, 
+                'multiple' => false,
+                'choices' => [
+                    'Oui' => 1,
+                    'Non' => 0,
+                ],
+                'attr' => [
+                    'class' => 'fr-radio-rich',
+                ],
+                'choice_attr' => function ($choice, $key, $value) {
+                return [
+                    'class' => 'fr-radio-group',
+                    'id' => 'img-' . strtolower($value),
+                ];
+            }
+            ])
             ->add('bachelor')
             ->add('vitalCard')
             ->add('idCertificate')

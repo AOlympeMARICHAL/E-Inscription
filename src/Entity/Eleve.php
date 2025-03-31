@@ -43,8 +43,8 @@ class Eleve
     #[ORM\Column(length: 255)]
     private ?string $regime = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $transport = null;
+    #[ORM\Column(type: 'json')]
+    private ?array $transport = [];
 
     #[ORM\Column(length: 8, nullable: true)]
     private ?string $immaVehicle = null;
@@ -214,17 +214,16 @@ class Eleve
         return $this;
     }
 
-    public function getTransport(): ?string
-    {
-        return $this->transport;
-    }
+    public function getTransport(): ?array
+{
+    return $this->transport;
+}
 
-    public function setTransport(string $transport): static
-    {
-        $this->transport = $transport;
-
-        return $this;
-    }
+public function setTransport(?array $transport): self
+{
+    $this->transport = $transport;
+    return $this;
+}
 
     public function getImmaVehicle(): ?string
     {

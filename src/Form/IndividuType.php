@@ -43,19 +43,28 @@ class IndividuType extends AbstractType
             ->add('commune', TextType::class, [
                 'label' => ' ',
             ])
-            ->add('nameBoss')
-            ->add('addressBoss')
+            ->add('nameBoss', TextType::class, [
+                'label' => ' ',
+                'required' => false,
+            ])
+            ->add('addressBoss', TextType::class, [
+                'label' => ' ',
+                'required' => false,
+            ])
             ->add('financier', EntityType::class, [
                 'class' => Financier::class,
                 'choice_label' => 'id',
+                'required' => false,
             ])
             ->add('responsable', EntityType::class, [
                 'class' => Responsable::class,
                 'choice_label' => 'id',
+                'required' => false,
             ])
             ->add('urgence', EntityType::class, [
                 'class' => Urgence::class,
                 'choice_label' => 'id',
+                'required' => false,
             ])
         ;
     }

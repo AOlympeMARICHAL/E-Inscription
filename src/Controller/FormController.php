@@ -23,30 +23,57 @@ use Symfony\Component\Routing\Attribute\Route;
 class FormController extends AbstractController
 {
     #[Route('/inscription', name: 'app_inscription')]
-    public function index(): Response
+    public function page1(Request $request, EntityManagerInterface $em): Response
     {
-        $individu = new Individu;
-        $individuForm = $this->createForm(IndividuType::class, $individu);
-        $eleve = new Eleve;
-        $eleveForm = $this->createForm(EleveType::class, $eleve);
-        return $this->render('inscription/un.html.twig', array(
-            'individuForm' => $individuForm,
-            'eleveForm' => $eleveForm
-        ));
-    }
-
-    #[Route("/inscription/getPage1", name: "app_inscription_getPage1")]
-    public function page1(Request $request, EntityManagerInterface $em)
-    {
-        $individu = new Individu;
-        $individuForm = $this->createForm(IndividuType::class, $individu);
-        $eleve = new Eleve;
-        $eleveForm = $this->createForm(EleveType::class, $eleve);
+        // $individu = new Individu();
+        // $eleve = new Eleve();
     
-        return $this->render('inscription/deux.html.twig', array(
-            'individuForm' => $individuForm,
-            'eleveForm' => $eleveForm
-        ));
-
+        // On crée un formulaire composite avec les deux entités
+        $form = $this->createFormBuilder()
+            ->add('individu', IndividuType::class)
+            ->add('eleve', EleveType::class)
+            ->getForm();
+    
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            
+            $em->persist($data['individu']); // On persiste l'individu
+            $em->persist($data['eleve']);    // On persiste l'élève
+            $em->flush();
+    
+            // Redirection vers la page deux.html.twig si succès
+            return $this->render('inscription/deux.html.twig');
+        }
+    
+        return $this->render('inscription/un.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
+
 }
+
+//     #[Route("/inscription/getPage1", name: "app_inscription_getPage1")]
+//     public function page1()
+//     {
+//         $individu = new Individu;
+//         $individuForm = $this->createForm(IndividuType::class, $individu);
+
+        
+//             $data = $individuForm->getData();
+//             $em->persist($data);
+//             $em->flush();
+//         }
+
+//         $eleve = new Eleve;
+//         $eleveForm = $this->createForm(EleveType::class, $eleve);
+
+//         if () {
+            
+//         }
+    
+//         return $this->
+
+//     }
+// }
