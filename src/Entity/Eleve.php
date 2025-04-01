@@ -16,61 +16,61 @@ class Eleve
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 11)]
+    #[ORM\Column(length: 11, nullable: true)]
     private ?string $INE = null;
 
-    #[ORM\Column(length: 13)]
+    #[ORM\Column(length: 13, nullable: true)]
     private ?string $secu = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateEntree = null;
 
-    #[ORM\Column(length: 1)]
+    #[ORM\Column(length: 1, nullable: true)]
     private ?string $sexe = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $nationality = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateBirth = null;
 
-    #[ORM\Column(length: 3)]
+    #[ORM\Column(length: 3, nullable: true)]
     private ?string $departmentBirth = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?bool $gradeRepetition = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $regime = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $transport = null;
+    #[ORM\Column(type: 'json', nullable: true)]
+    private ?array $transport = [];
 
     #[ORM\Column(length: 8, nullable: true)]
     private ?string $immaVehicle = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $speciality = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $lv1 = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $lv2 = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?bool $mdl = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?bool $copyright = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $bachelor = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $vitalCard = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $idCertificate = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -80,11 +80,11 @@ class Eleve
     private ?string $cours = null;
 
     #[ORM\ManyToOne(inversedBy: 'id_eleve')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Financier $financier = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Individu $individu = null;
 
     /**
@@ -214,17 +214,16 @@ class Eleve
         return $this;
     }
 
-    public function getTransport(): ?string
-    {
-        return $this->transport;
-    }
+    public function getTransport(): ?array
+{
+    return $this->transport;
+}
 
-    public function setTransport(string $transport): static
-    {
-        $this->transport = $transport;
-
-        return $this;
-    }
+public function setTransport(?array $transport): self
+{
+    $this->transport = $transport;
+    return $this;
+}
 
     public function getImmaVehicle(): ?string
     {

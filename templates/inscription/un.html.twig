@@ -31,23 +31,45 @@
 </div>
 
 {# ----------------------------------------------------------- #}
-{{ form_start(individuForm) }}
+{{ form_start(form) }}
+{{ form_errors(form) }}
  <div class="sp-perso sp-perso-content fr-mb-4w">
     <div class="sp-perso-header">
       <h3 class="fr-h3 sp-perso-title sp-accent">Identité de l'élève</h3>
     </div>
-    <form method="get" action="#">
       <div class="fr-input-group fr-grid-row">
+        <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend">INE</legend>
+            <span class="fr-hint-text">Format attendu : 1234567890 AB</span>
+            {# --------------input ici------------- #}
+            {{ form_row(form.eleve.INE, {'attr': {'class': 'fr-input'} })  }}
+          </div>
         <fieldset class="fr-fieldset" aria-label="Nom et prénom">
           <div class="fr-fieldset__element">
             <legend class="fr-fieldset__legend">Nom</legend>
             {# --------------input ici------------- #}
-            {{ form_row(individuForm.name, {'attr': {'class': 'fr-input'} })  }}
+            {{ form_row(form.individu.name, {'attr': {'class': 'fr-input'} })  }}
           </div>
           <div class="fr-fieldset__element">
             <legend class="fr-fieldset__legend">Prénom</legend>
             {# --------------input ici------------- #}
-            {{ form_row(individuForm.lastname, {'attr': {'class': 'fr-input'} })  }}
+            {{ form_row(form.individu.lastname, {'attr': {'class': 'fr-input'} })  }}
+          </div>
+          <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend">Date de naissance</legend>
+            {# --------------input ici------------- #}
+            {{ form_row(form.eleve.dateBirth, {'attr': {'class': 'fr-input'} })  }}
+          </div>
+          <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend">Nationalité</legend>
+            {# --------------input ici------------- #}
+            {{ form_row(form.eleve.nationality, {'attr': {'class': 'fr-input'} })  }}
+          </div>
+          <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend">Département de Naissance</legend>
+            <span class="fr-hint-text">Format attendu : 28</span>
+            {# --------------input ici------------- #}
+            {{ form_row(form.eleve.departmentBirth, {'attr': {'class': 'fr-input'} })  }}
           </div>
         </fieldset>
       </div>
@@ -58,7 +80,7 @@
           <span class="fr-hint-text">Format attendu : (+33) 1 22 33 44 55</span>
         </legend>
          {# --------------input ici------------- #}
-            {{ form_row(individuForm.mobilePhone, {'attr': {'class': 'fr-input'} })  }}
+            {{ form_row(form.individu.mobilePhone, {'attr': {'class': 'fr-input'} })  }}
         <div class="fr-messages-group" id="tel-1-messages" aria-live="assertive"></div>
       </div>
 
@@ -68,37 +90,44 @@
           <span class="fr-hint-text">Format attendu : nom@email.fr</span>
         </legend>
         {# --------------input ici------------- #}
-            {{ form_row(individuForm.email, {'attr': {'class': 'fr-input'} })  }}
+            {{ form_row(form.individu.email, {'attr': {'class': 'fr-input'} })  }}
       </div>
       <div class="fr-input-group">
         <legend class="fr-fieldset__legend">
           Ville
         </legend>
         {# --------------input ici------------- #}
-            {{ form_row(individuForm.city, {'attr': {'class': 'fr-input'} })  }}
+            {{ form_row(form.individu.city, {'attr': {'class': 'fr-input'} })  }}
       </div>
       <div class="fr-input-group">
         <legend class="fr-fieldset__legend">
           Commune
         </legend>
         {# --------------input ici------------- #}
-            {{ form_row(individuForm.commune, {'attr': {'class': 'fr-input'} })  }}
+
+            {{ form_row(form.individu.commune, {'attr': {'class': 'fr-input'} })  }}
       </div>
       <div class="fr-input-group">
         <legend class="fr-fieldset__legend">
           Adresse
         </legend>
         {# --------------input ici------------- #}
-            {{ form_row(individuForm.address, {'attr': {'class': 'fr-input'} })  }}
+            {{ form_row(form.individu.address, {'attr': {'class': 'fr-input'} })  }}
       </div>
-    {{ form_end(individuForm, {'render_rest': false}) }}
+      <div class="fr-input-group">
+        <legend class="fr-fieldset__legend">
+          Code Postal
+        </legend>
+        {# --------------input ici------------- #}
+            {{ form_row(form.individu.zip, {'attr': {'class': 'fr-input'} })  }}
+      </div>
+    
+    {# --------------Deuxième partie du form ------------- #}
 
-    {# --------------Deuxième partie du form (source probleme)------------- #}
-    {{ form_start(eleveForm) }}
     <fieldset class="fr-fieldset">
     <legend class="fr-fieldset__legend">Sexe</legend>
       <div class="fr-fieldset__content ">
-        {{ form_row(eleveForm.sexe) }}
+        {{ form_row(form.eleve.sexe) }}
       </div>
     </fieldset>
 
@@ -107,16 +136,16 @@
 
     <fieldset class="fr-fieldset">
       <div class="fr-fieldset__content ">
-        {{ form_row(eleveForm.transport) }}
+        {{ form_row(form.eleve.transport) }}
       </div>
     </fieldset>
 
     <h3>Scolarité pour cette année</h3>
 
     <fieldset class="fr-fieldset">
-    <label class="fr-fieldset__legend" for="redoublement">Redoublement</label>
+    <label class="fr-fieldset__legend">Redoublement</label>
       <div class="fr-fieldset__content ">
-        {{ form_row(eleveForm.redoublement) }}
+        {{ form_row(form.eleve.gradeRepetition) }}
       </div>
     </fieldset>
 
@@ -124,11 +153,11 @@
     <div class="fr-fieldset__element">
       <div class="fr-input-group">
         <legend class="fr-fieldset__legend">Classe</legend>
-         {{ form_row(eleveForm.cours) }}
+         {{ form_row(form.eleve.cours) }}
       </div>
       <div class="fr-input-group">
         <legend class="fr-fieldset__legend">Spécialité</legend>
-         {{ form_row(eleveForm.speciality) }}
+         {{ form_row(form.eleve.speciality) }}
       </div>
     </div>  
     </fieldset>
@@ -136,71 +165,44 @@
     <h3>Langues</h3>
 
     <fieldset class="fr-fieldset" aria-label="Langues">
-
-    </fieldset>
-
-    {{ form_end(eleveForm, {'render_rest': false}) }}
-
-      
-      <fieldset class="fr-fieldset" aria-label="Langues">
-        <div class="fr-grid-row">
-          <div class="fr-fieldset__element">
-            <div class="fr-input-group">
-              <label class="fr-label" for="lv1">LV1</label>
-              <input class="fr-input" spellcheck="false" autocomplete="lv1" name="lv1" id="lv1" type="text">
-            </div>
+      <div class="fr-grid-row">
+        <div class="fr-fieldset__element">
+          <div class="fr-input-group">
+            <label class="fr-label" for="lv1">LV1</label>
+            {{ form_row(form.eleve.lv1) }}
           </div>
-          <div class="fr-fieldset__element">
+        </div>
+        <div class="fr-fieldset__element">
             <div class="fr-input-group">
               <label class="fr-label" for="lv2">LV2 (facultatif)</label>
-              <input class="fr-input" spellcheck="false" autocomplete="lv2" name="lv2" id="lv2" type="text">
+              {{ form_row(form.eleve.lv2) }}
             </div>
           </div>
-        </div>
-      </fieldset>
+      </div>
+    </fieldset>
 
-      <p class="fr-text--bold">
+    <h3>Vie Lycéenne</h3>
+
+    <p class="fr-text--bold">
         Souhaitez-vous être membre de la MDL ?
         <span class="fr-hint-text">(si oui, le jour de la rentrée, vous devez fournir un chèque de 10€ au nom de la MDL)</span>
-      </p>
-      <fieldset class="fr-fieldset" aria-label="MDL" id="mdl-fieldset">
-        <div class="fr-fieldset__element">
-          <div class="fr-radio-group">
-            <input type="radio" id="mdl-yes" name="mdl" value="yes">
-            <label class="fr-label" for="mdl-yes">Oui</label>
-          </div>
-        </div>
-        <div class="fr-fieldset__element">
-          <div class="fr-radio-group">
-            <input type="radio" id="mdl-no" name="mdl" value="no">
-            <label class="fr-label" for="mdl-no">Non</label>
-          </div>
-        </div>
-      </fieldset>
+        {{ form_row(form.eleve.mdl) }}
+    </p>
 
-      <p class="fr-text--bold">
+    <p class="fr-text--bold">
         Souhaitez-vous garder votre droit à l'image ?
         <span class="fr-hint-text">(si oui, vous n'apparaîtrez sur aucune photo de l'établissement)</span>
-      </p>
-      <fieldset class="fr-fieldset" aria-label="Droit à l'image" id="img-fieldset">
-        <div class="fr-fieldset__element">
-          <div class="fr-radio-group">
-            <input type="radio" id="img-yes" name="img" value="yes">
-            <label class="fr-label" for="img-yes">Oui</label>
-          </div>
-        </div>
-        <div class="fr-fieldset__element">
-          <div class="fr-radio-group">
-            <input type="radio" id="img-no" name="img" value="no">
-            <label class="fr-label" for="img-no">Non</label>
-          </div>
-        </div>
-      </fieldset>
+        {{ form_row(form.eleve.copyright) }}
+    </p>
+
+    
+
 
       <div class="fr-mt-4w">
         <button class="fr-btn" type="submit">Suivant</button>
+        {{ form_rest(form) }}
+        {{ form_end(form, {'render_rest': false}) }}
       </div>
-    </form>
   </div>
 </div>
 
