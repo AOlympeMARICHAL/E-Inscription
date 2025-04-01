@@ -93,9 +93,6 @@ class Eleve
     #[ORM\OneToMany(targetEntity: Antecedent::class, mappedBy: 'id_eleve')]
     private Collection $antecedent;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $redoublement = null;
-
     public function __construct()
     {
         $this->antecedent = new ArrayCollection();
@@ -407,18 +404,6 @@ public function setTransport(?array $transport): self
                 $antecedent->setIdEleve(null);
             }
         }
-
-        return $this;
-    }
-
-    public function isRedoublement(): ?bool
-    {
-        return $this->redoublement;
-    }
-
-    public function setRedoublement(?bool $redoublement): static
-    {
-        $this->redoublement = $redoublement;
 
         return $this;
     }

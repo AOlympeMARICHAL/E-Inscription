@@ -25,8 +25,6 @@ class FormController extends AbstractController
     #[Route('/inscription', name: 'app_inscription')]
     public function page1(Request $request, EntityManagerInterface $em): Response
     {
-        // $individu = new Individu();
-        // $eleve = new Eleve();
     
         // On crée un formulaire composite avec les deux entités
         $form = $this->createFormBuilder()

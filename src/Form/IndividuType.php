@@ -52,6 +52,7 @@ class IndividuType extends AbstractType
                 'required' => false,
             ])
             ->add('financier', EntityType::class, [
+                'label' => ' ',
                 'class' => Financier::class,
                 'choice_label' => 'id',
                 'required' => false,

@@ -19,10 +19,17 @@ class EleveType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('INE')
-            ->add('secu')
+            ->add('INE', TextType::class, [
+                'label' => ' ',
+            ])
+            ->add('secu', null, [
+                'label' => ' ',
+                'required' => false,
+            ])
             ->add('dateEntree', null, [
+                'label' => ' ',
                 'widget' => 'single_text',
+                'required' => false,
             ])
             ->add('sexe', ChoiceType::class, [
                 'label' => ' ',
@@ -42,21 +49,27 @@ class EleveType extends AbstractType
                 }
 
             ])
-            ->add('redoublement', CheckboxType::class, [
+            ->add('gradeRepetition', CheckboxType::class, [
                 'label' => 'Redoublement',
                 'required' => false,
                 'attr' => [
                     'class' => 'fr-checkbox-group',
                 ]
             ])
-            ->add('nationality')
+            ->add('nationality', TextType::class, [
+                'label' => ' '
+            ])
             ->add('dateBirth', DateType::class, [
                 'label' => ' ',
                 'widget' => 'single_text',
             ])
-            ->add('departmentBirth')
-            ->add('gradeRepetition')
-            ->add('regime')
+            ->add('departmentBirth', TextType::class, [
+                'label' => ' '
+            ])
+            ->add('regime', null, [
+                'label' => ' ',
+                'required' => false,
+            ])
             ->add('transport', ChoiceType::class, [
                 'label' => ' ',
                 'expanded' => true, 
@@ -71,7 +84,10 @@ class EleveType extends AbstractType
                 ]
 
                 ])
-            ->add('immaVehicle')
+            ->add('immaVehicle', null, [
+                'label' => ' ',
+                'required' => false,
+            ])
             ->add('speciality', TextType::class, [
                 'label' => ' ',
                 'attr' => [
@@ -126,10 +142,22 @@ class EleveType extends AbstractType
                 ];
             }
             ])
-            ->add('bachelor')
-            ->add('vitalCard')
-            ->add('idCertificate')
-            ->add('assurance')
+            ->add('bachelor', null, [
+                'label' => ' ',
+                'required' => false,
+            ])
+            ->add('vitalCard', null, [
+                'label' => ' ',
+                'required' => false,
+            ])
+            ->add('idCertificate', null, [
+                'label' => ' ',
+                'required' => false,
+            ])
+            ->add('assurance', null, [
+                'label' => ' ',
+                'required' => false,
+            ])
             ->add('cours', TextType::class, [
                 'label' => ' ',
                 'attr' => [
@@ -139,10 +167,14 @@ class EleveType extends AbstractType
             ->add('financier', EntityType::class, [
                 'class' => Financier::class,
                 'choice_label' => 'id',
+                'label' => ' ',
+                'required' => false,
             ])
             ->add('individu', EntityType::class, [
                 'class' => Individu::class,
                 'choice_label' => 'id',
+                'label' => ' ',
+                'required' => false,
             ])
         ;
     }

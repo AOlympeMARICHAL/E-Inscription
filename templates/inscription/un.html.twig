@@ -37,8 +37,13 @@
     <div class="sp-perso-header">
       <h3 class="fr-h3 sp-perso-title sp-accent">Identité de l'élève</h3>
     </div>
-    <form method="get" action="#">
       <div class="fr-input-group fr-grid-row">
+        <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend">INE</legend>
+            <span class="fr-hint-text">Format attendu : 1234567890 AB</span>
+            {# --------------input ici------------- #}
+            {{ form_row(form.eleve.INE, {'attr': {'class': 'fr-input'} })  }}
+          </div>
         <fieldset class="fr-fieldset" aria-label="Nom et prénom">
           <div class="fr-fieldset__element">
             <legend class="fr-fieldset__legend">Nom</legend>
@@ -54,6 +59,16 @@
             <legend class="fr-fieldset__legend">Date de naissance</legend>
             {# --------------input ici------------- #}
             {{ form_row(form.eleve.dateBirth, {'attr': {'class': 'fr-input'} })  }}
+          </div>
+          <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend">Nationalité</legend>
+            {# --------------input ici------------- #}
+            {{ form_row(form.eleve.nationality, {'attr': {'class': 'fr-input'} })  }}
+          </div>
+          <div class="fr-fieldset__element">
+            <legend class="fr-fieldset__legend">Département de Naissance</legend>
+            {# --------------input ici------------- #}
+            {{ form_row(form.eleve.departmentBirth, {'attr': {'class': 'fr-input'} })  }}
           </div>
         </fieldset>
       </div>
@@ -104,11 +119,9 @@
         {# --------------input ici------------- #}
             {{ form_row(form.individu.zip, {'attr': {'class': 'fr-input'} })  }}
       </div>
-    {# {{ form_end(individuForm, {'render_rest': false}) }} #}
+    
+    {# --------------Deuxième partie du form ------------- #}
 
-    {# --------------Deuxième partie du form (source probleme)------------- #}
-    {# {{ form_start(eleveForm) }}
-    {{ form_errors(eleveForm) }} #}
     <fieldset class="fr-fieldset">
     <legend class="fr-fieldset__legend">Sexe</legend>
       <div class="fr-fieldset__content ">
@@ -128,9 +141,9 @@
     <h3>Scolarité pour cette année</h3>
 
     <fieldset class="fr-fieldset">
-    <label class="fr-fieldset__legend" for="redoublement">Redoublement</label>
+    <label class="fr-fieldset__legend">Redoublement</label>
       <div class="fr-fieldset__content ">
-        {{ form_row(form.eleve.redoublement) }}
+        {{ form_row(form.eleve.gradeRepetition) }}
       </div>
     </fieldset>
 
@@ -185,6 +198,7 @@
 
       <div class="fr-mt-4w">
         <button class="fr-btn" type="submit">Suivant</button>
+        {{ form_rest(form) }}
         {{ form_end(form, {'render_rest': false}) }}
       </div>
   </div>
