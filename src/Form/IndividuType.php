@@ -58,11 +58,13 @@ class IndividuType extends AbstractType
                 'required' => false,
             ])
             ->add('responsable', EntityType::class, [
+                'label' => ' ',
                 'class' => Responsable::class,
                 'choice_label' => 'id',
                 'required' => false,
             ])
             ->add('urgence', EntityType::class, [
+                'label' => ' ',
                 'class' => Urgence::class,
                 'choice_label' => 'id',
                 'required' => false,
