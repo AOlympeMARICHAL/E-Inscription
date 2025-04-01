@@ -52,26 +52,3 @@ class FormController extends AbstractController
 
 }
 
-//     #[Route("/inscription/getPage1", name: "app_inscription_getPage1")]
-//     public function page1()
-//     {
-//         $individu = new Individu;
-//         $individuForm = $this->createForm(IndividuType::class, $individu);
-
-        
-//             $data = $individuForm->getData();
-//             $em->persist($data);
-//             $em->flush();
-//         }
-
-//         $eleve = new Eleve;
-//         $eleveForm = $this->createForm(EleveType::class, $eleve);
-
-//         if () {
-            
-//         }
-    
-//         return $this->
-
-//     }
-// }

@@ -43,6 +43,7 @@ class IndividuType extends AbstractType
             ->add('commune', TextType::class, [
                 'label' => ' ',
             ])
+
             ->add('nameBoss', TextType::class, [
                 'label' => ' ',
                 'required' => false,

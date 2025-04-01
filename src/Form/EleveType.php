@@ -70,6 +70,42 @@ class EleveType extends AbstractType
                 'label' => ' ',
                 'required' => false,
             ])
+            ->add('sexe', ChoiceType::class, [
+                'label' => ' ',
+                'expanded' => true,
+                'multiple' => false,
+                'choices' => [
+                    'Féminin' => 'F',
+                    'Masculin' => 'M'
+                ],
+                'attr' => [
+                    'class' => 'fr-radio-rich',
+                ],
+                'choice_attr' => function ($choice, $key, $value) {
+                    return [
+                        'style' => 'display: none;',
+                    ];
+                }
+
+            ])
+            ->add('redoublement', ChoiceType::class, [
+                'label' => ' ',
+                'expanded' => true, 
+                'multiple' => true,
+                'choices' => [
+                    'Redoublement' => true
+                ],
+                'attr' => [
+                'class' => 'fr-checkbox-group',
+                ]
+            ])
+            ->add('nationality')
+            ->add('dateBirth', null, [
+                'widget' => 'single_text',
+            ])
+            ->add('departmentBirth')
+            ->add('gradeRepetition')
+            ->add('regime')
             ->add('transport', ChoiceType::class, [
                 'label' => ' ',
                 'expanded' => true, 
