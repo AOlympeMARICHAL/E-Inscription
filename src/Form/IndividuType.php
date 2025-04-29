@@ -20,28 +20,36 @@ class IndividuType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label'=> ' '
+                'label'=> ' ',
+                'required' => false,
             ])
             ->add('lastname', TextType::class, [
-                'label'=> ' '
+                'label'=> ' ',
+                'required' => false,
             ])
             ->add('email', EmailType::class, [
                 'label' => ' ',
+                'required' => false,
             ])
             ->add('mobilePhone', TelType::class,[
-                'label'=> ' '
+                'label'=> ' ',
+                'required' => false,
             ])
             ->add('address', TextType::class, [
                 'label' => ' ',
+                'required' => false,
             ])
             ->add('zip', TextType::class, [
                 'label' => ' ',
+                'required' => false,
             ])
             ->add('city', TextType::class, [
                 'label' => ' ',
+                'required' => false,
             ])
             ->add('commune', TextType::class, [
                 'label' => ' ',
+                'required' => false,
             ])
             ->add('nameBoss', TextType::class, [
                 'label' => ' ',

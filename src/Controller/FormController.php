@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Antecedent;
 use App\Entity\Eleve;
 use App\Entity\Individu;
 use App\Form\AContacterType;
@@ -37,15 +38,44 @@ class FormController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             
-            $em->persist($data['individu']); // On persiste l'individu
-            $em->persist($data['eleve']);    // On persiste l'élève
+            $em->persist($data['individu']); 
+            $em->persist($data['eleve']);
             $em->flush();
     
             // Redirection vers la page deux.html.twig si succès
-            return $this->render('inscription/deux.html.twig');
+            return $this->redirect('app_inscription_antecedent');
         }
     
         return $this->render('inscription/un.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/inscription/antecedent', name: 'app_inscription_antecedent')]
+    public function page2(Request $request, EntityManagerInterface $em): Response
+    {
+    
+        // On crée un formulaire composite avec les deux entités
+        $form = $this->createFormBuilder()
+            ->add('antecedent1', AntecedentType::class)
+            ->add('antecedent2', AntecedentType::class)
+            ->add('eleve', EleveType::class)
+            ->getForm();
+    
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            
+            $em->persist($data['antecedent1']); 
+            $em->persist($data['antecedent2']);    
+            $em->flush();
+    
+            
+            return $this->render('inscription/trois.html.twig');
+        }
+    
+        return $this->render('inscription/deux.html.twig', [
             'form' => $form->createView(),
         ]);
     }
