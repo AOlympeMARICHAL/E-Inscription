@@ -51,6 +51,7 @@ class IndividuType extends AbstractType
                 'label' => ' ',
                 'required' => false,
             ])
+
             ->add('nameBoss', TextType::class, [
                 'label' => ' ',
                 'required' => false,
