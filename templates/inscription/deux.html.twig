@@ -5,41 +5,52 @@
 {% block body %}
 
 {# -----------------------Fil d'Ariane------------------------------------- #}
-<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
-    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
-    <div class="fr-collapse" id="breadcrumb-1">
-        <ol class="fr-breadcrumb__list">
-            <li>
-                <a class="fr-breadcrumb__link" href="/">Accueil</a>
-            </li>
-            <li>
-                <a class="fr-breadcrumb__link" href="/form/1">Renseignement</a>
-            </li>
-             <li>
-                <a class="fr-breadcrumb__link">Scolarité antérieur</a>
-            </li>
-            
-    </div>
+<nav role="navigation" class="fr-breadcrumb" aria-label="Vous êtes ici :">
+  <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+  <div class="fr-collapse" id="breadcrumb-1">
+    <ul class="fr-breadcrumb__list">
+      <li>
+        <a class="fr-breadcrumb__link" href="/">Accueil</a>
+      </li>
+      <li>
+        <a class="fr-breadcrumb__link" href="/inscription/un">Renseignement</a>
+      </li>
+      <li>
+        <a class="fr-breadcrumb__link" href="#">Scolarité antérieur</a>
+        </li>
+    </ul>
+  </div>
 </nav>
 
 {# ------------------------------------------------------------ #}
 
 <div class="fr-container">
-    <div class="fr-container">
-        <h1>Inscription au Lycée Fulbert</h1>
-        <div class="fr-stepper">
+  <h1>Inscription au Lycée Fulbert</h1>
+  <div class="fr-stepper">
     <h2 class="fr-stepper__title">
-        Scolarité antérieur de l'étudiant
-        <span class="fr-stepper__state">Étape 2 sur 7</span>
+       Scolarité antérieur de l'étudiant
+      <span class="fr-stepper__state">Étape 2 sur 7</span>
     </h2>
     <div class="fr-stepper__steps" data-fr-current-step="2" data-fr-steps="7"></div>
+    <p class="fr-stepper__details">
+      <span class="fr-text--bold">Étape suivante :</span> Responsables légaux
+    </p>
 </div>
 
 {# ----------------------Année précendente (à rendre dynamique)-------------------------------------- #}
 
-<h3>2022-2023 :</h3>
+<h3>{{ "now"|date("Y")-3 }}-{{ "now"|date("Y")-2 }} :</h3>
 
 {# ------------------------------------------------------------ #}
+{# {{ form_start(form) }}
+{{ form_errors(form) }} #}
+<div class="sp-perso sp-perso-content fr-mb-4w">
+    <div class="sp-perso-header">
+        <h3 class="fr-h3 sp-perso-title sp-accent">Parcours antécédents</h3>
+    </div>
+</div>
+
+{# {{ form_end(form) }} #}
 
 <div class="fr-input-group" style = 'margin: 35px'>
     <label class="fr-label" for="text-input-name-etab">Nom de l'établissement
@@ -87,7 +98,7 @@
 
 {# --------------------Année dernière (à rendre dynamique)---------------------------------------- #}
 
-<h3>2023-2024 :</h3>
+<h3>{{ "now"|date("Y")-2 }}-{{ "now"|date("Y")-1 }} :</h3>
 
 {# ------------------------------------------------------------ #}
 
