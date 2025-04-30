@@ -125,11 +125,11 @@
     {# --------------Deuxième partie du form ------------- #}
 
     <fieldset class="fr-fieldset">
-    <legend class="fr-fieldset__legend">Sexe</legend>
-      <div class="fr-fieldset__content ">
-        {{ form_row(form.eleve.sexe) }}
-      </div>
-    </fieldset>
+    <legend class="fr-fieldset__legend">{{ form_label(form.eleve.sexe) }}</legend>
+    <div class="fr-fieldset__content">
+        {{ form_widget(form.eleve.sexe) }}
+    </div>
+</fieldset>
 
     <h3>Transport</h3>
     <p>Type(s) de transport utilisé(s) pour se rendre au lycée :</p>
@@ -183,30 +183,25 @@
 
     <h3>Vie Lycéenne</h3>
 
-    <p class="fr-text--bold">
-        Souhaitez-vous être membre de la MDL ?
-        <span class="fr-hint-text">(si oui, le jour de la rentrée, vous devez fournir un chèque de 10€ au nom de la MDL)</span>
+    <fieldset class="fr-fieldset">
+    <div class="fr-fieldset__content">
         {{ form_row(form.eleve.mdl) }}
-    </p>
+    </div>
+</fieldset>
 
-    <p class="fr-text--bold">
-        Souhaitez-vous garder votre droit à l'image ?
-        <span class="fr-hint-text">(si oui, vous n'apparaîtrez sur aucune photo de l'établissement)</span>
+    <fieldset class="fr-fieldset">
+    <div class="fr-fieldset__content">
         {{ form_row(form.eleve.copyright) }}
-    </p>
-
-    
-
-
+    </div>
+</fieldset>
       <div class="fr-mt-4w">
         <button class="fr-btn" type="submit">Suivant</button>
-        {{ form_rest(form)}}
+        <div style="display: none;">
+            {{ form_rest(form) }}
+        </div>
         {{ form_end(form, {'render_rest': false}) }}
       </div>
   </div>
 </div>
-
-
-
- 
+</div>
 {% endblock %}
