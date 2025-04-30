@@ -88,17 +88,7 @@ class EleveType extends AbstractType
                 }
 
             ])
-            ->add('redoublement', ChoiceType::class, [
-                'label' => ' ',
-                'expanded' => true, 
-                'multiple' => true,
-                'choices' => [
-                    'Redoublement' => true
-                ],
-                'attr' => [
-                'class' => 'fr-checkbox-group',
-                ]
-            ])
+            
             ->add('nationality')
             ->add('dateBirth', null, [
                 'widget' => 'single_text',

@@ -62,7 +62,7 @@
                                                             Identifiant
                                                             <span class="fr-hint-text">Format attendu : nom.prenom</span>
                                                         </label>
-                                                        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+                                                        <input class="fr-input" autocomplete="username" aria-required="true" aria-describedby="username-1757-messages" name="username" id="inputUsername" type="text" value="{{ last_username }}" required autofocus>
                                                         <div class="fr-messages-group" id="username-1757-messages" aria-live="assertive">
                                                         </div>
                                                     </div>
@@ -73,7 +73,7 @@
                                                             Mot de passe
                                                         </label>
                                                         <div class="fr-input-wrap">
-                                                            <input class="fr-password__input fr-input" aria-describedby="password-1758-input-messages" aria-required="true" name="password" autocomplete="current-password" id="password-1758-input" type="password">
+                                                            <input class="fr-password__input fr-input" aria-describedby="password-1758-input-messages" aria-required="true" name="password" autocomplete="current-password" id="inputPassword" type="password" required>
                                                         </div>
                                                         <div class="fr-messages-group" id="password-1758-input-messages" aria-live="assertive">
                                                         </div>
@@ -107,7 +107,7 @@
                                         <div class="fr-fieldset__element">
                                             <ul class="fr-btns-group">
                                                 <li>
-                                                    <button class="btn btn-lg btn-primary" type="submit">
+                                                    <button class="fr-mt-2v fr-btn" type="submit">
                                                         Se connecter
                                                     </button>
                                                 </li>
