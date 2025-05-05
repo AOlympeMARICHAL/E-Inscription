@@ -37,12 +37,32 @@
         </div>
         
         <h3>Fiche d'urgence</h3>
-        {{ form_start(form) }}
-    {{ form_row(form.nameDoctor, { 'label': 'Nom du médecin' }) }}
-    {{ form_row(form.addressDoctor, { 'label': 'Adresse du médecin' }) }}
-    {{ form_row(form.phoneDoctor, { 'label': 'Téléphone du médecin' }) }}
-    {{ form_row(form.dateVaccine, { 'label': 'Date du dernier rappel de vaccin antitétanique' }) }}
-{{ form_end(form) }}
+        {# ------------------------------------------------------------ #}
+        <form>
+            <div class="fr-input-group">
+                <label class="fr-label" for="text-input-option"> Nom du medecin
+                </label>
+                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            </div>
+            {# ------------------------------------------------------------ #}
+            <div class="fr-input-group">
+                <label class="fr-label" for="text-input-option"> Adresse du medecin
+                </label>
+                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            </div>
+            {# ------------------------------------------------------------ #}
+            <div class="fr-input-group">
+                <label class="fr-label" for="text-input-option">Téléphone du médecin
+                </label>
+                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            </div>
+            {# ------------------------------------------------------------ #}
+            <div class="fr-input-group">
+                <label class = "fr-label" for="text-input_date"> Date du dernier rappel de vaccin antitétanique
+                <input class="fr-input "type="date">
+            </div>
+
+        </form>
         
     </div>
     
