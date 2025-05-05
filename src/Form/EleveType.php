@@ -78,7 +78,7 @@ class EleveType extends AbstractType
                 'required' => false,
                 'choices' => [
                     'Féminin' => 'F',
-                    'Masculin' => 'M'
+                    'Masculin' => 'M',
                 ],
                 'attr' => [
                     'class' => 'fr-radio-group',

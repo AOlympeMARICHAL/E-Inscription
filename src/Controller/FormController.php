@@ -66,6 +66,7 @@ class FormController extends AbstractController
     {
         // Récupération de l'ID de l'élève depuis la session
         $eleveId = $request->getSession()->get('eleve_id');
+        $individuId = $request->getSession()->get('id_individu');
         $eleve = $em->getRepository(Eleve::class)->find($eleveId);
 
         $antecedent1 = new Antecedent();
@@ -96,6 +97,80 @@ class FormController extends AbstractController
     
         return $this->render('inscription/deux.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/inscription/4', name: 'app_inscription_4')]
+    public function page4(): Response
+    {
+        return $this->render('inscription/quatre.html.twig', [
+            'controller_name' => 'InscriptionControllerPage4',
+        ]);
+    }
+    
+    #[Route('/inscription/quatre', name: 'app_inscription_quatre')]
+    public function page4_2(Request $request, EntityManagerInterface $em): Response
+    {
+        // Récupération de l'ID de individu depuis la session
+        $individuId = $request->getSession()->get('id_individu');
+        $individu = $em->getRepository(Individu::class)->find($individuId);
+
+        $antecedent1 = new Antecedent();
+        $antecedent2 = new Antecedent();
+
+        // On crée un formulaire composite avec les deux entités
+        $form = $this->createFormBuilder()
+            ->add('antecedent1', AntecedentType::class)
+            ->add('antecedent2', AntecedentType::class)
+            ->add('individu', IndividuType::class)
+            ->getForm();
+    
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $data['antecedent1']->setEleve($individu);
+            $data['antecedent2']->setEleve($individu);
+            
+            $em->persist($data['antecedent1']); 
+            $em->persist($data['antecedent2']);    
+            $em->flush();
+    
+            
+            return $this->render('inscription/cinq.html.twig');
+        }
+    
+        return $this->render('inscription/quatre.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+    #[Route('/inscription/3', name: 'app_inscription_3')]
+    public function page3(): Response
+    {
+        return $this->render('inscription/trois.html.twig', [
+            'controller_name' => 'InscriptionControllerPage3',
+        ]);
+    }
+    #[Route('/inscription/5', name: 'app_inscription_5')]
+    public function page5(): Response
+    {
+        return $this->render('inscription/cinq.html.twig', [
+            'controller_name' => 'InscriptionControllerPage4',
+        ]);
+    }
+    #[Route('/inscription/6', name: 'app_inscription_6')]
+    public function page6(): Response
+    {
+        return $this->render('inscription/six.html.twig', [
+            'controller_name' => 'InscriptionControllerPage6',
+        ]);
+    }
+    #[Route('/inscription/7', name: 'app_inscription_7')]
+    public function page7(): Response
+    {
+        return $this->render('inscription/end.html.twig', [
+            'controller_name' => 'InscriptionControllerPage7',
         ]);
     }
 
