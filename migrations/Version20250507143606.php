@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250507134126 extends AbstractMigration
+final class Version20250507143606 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -27,10 +27,10 @@ final class Version20250507134126 extends AbstractMigration
             ALTER TABLE antecedent ADD CONSTRAINT FK_3166BE7C5AB72B27 FOREIGN KEY (id_eleve_id) REFERENCES eleve (id)
         SQL);
         $this->addSql(<<<'SQL'
-            ALTER TABLE user ADD email VARCHAR(180) NOT NULL
+            DROP INDEX UNIQ_8D93D649E7927C74 ON user
         SQL);
         $this->addSql(<<<'SQL'
-            CREATE UNIQUE INDEX UNIQ_8D93D649E7927C74 ON user (email)
+            ALTER TABLE user CHANGE email email VARCHAR(180) DEFAULT NULL
         SQL);
     }
 
@@ -41,10 +41,10 @@ final class Version20250507134126 extends AbstractMigration
             ALTER TABLE acontacter DROP FOREIGN KEY FK_8208394FF201FF6A
         SQL);
         $this->addSql(<<<'SQL'
-            DROP INDEX UNIQ_8D93D649E7927C74 ON user
+            ALTER TABLE user CHANGE email email VARCHAR(180) NOT NULL
         SQL);
         $this->addSql(<<<'SQL'
-            ALTER TABLE user DROP email
+            CREATE UNIQUE INDEX UNIQ_8D93D649E7927C74 ON user (email)
         SQL);
         $this->addSql(<<<'SQL'
             ALTER TABLE antecedent DROP FOREIGN KEY FK_3166BE7C5AB72B27
