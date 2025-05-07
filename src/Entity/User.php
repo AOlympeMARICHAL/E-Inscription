@@ -18,6 +18,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\Email(message: "L'adresse e-mail '{{ value }}' n'est pas valide.")]
+    #[Assert\NotBlank(message: "L'adresse e-mail est obligatoire.")]
+    private $email;
+
     #[ORM\Column(length: 180)]
     private ?string $username = null;
 
@@ -47,6 +52,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->username = $username;
 
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
         return $this;
     }
 
@@ -96,6 +112,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 
     /**
      * @see UserInterface
