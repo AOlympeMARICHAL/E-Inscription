@@ -87,6 +87,9 @@
                                                             <div class="fr-messages-group" id="password-1758-show-messages" aria-live="assertive">
                                                             </div>
                                                         </div>
+                                                        <div class="fr-fieldset__element">
+                                                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                                        </div>
                                                         <p>
                                                             <a href="[À MODIFIER - url de la page de récupération]" class="fr-link">Mot de passe oublié ?</a>
                                                         </p>
@@ -124,9 +127,9 @@
                             <h2>Vous n’avez pas de compte ?</h2>
                             <ul class="fr-btns-group">
                                 <li>
-                                    <button class="fr-btn fr-btn--secondary" href="/register">
+                                    <a class="fr-btn fr-btn--secondary" href="/register">
                                         Créer un compte
-                                    </button>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
