@@ -37,37 +37,39 @@
         </div>
         
         <h3>Fiche d'urgence</h3>
+        {{form_start(form)}}
+        {{ form_errors(form) }}
+        
         {# ------------------------------------------------------------ #}
-        <form>
-            <div class="fr-input-group">
-                <label class="fr-label" for="text-input-option"> Nom du medecin
-                </label>
-                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            <div class="fr-input-group style="margin: "35px">
+                <span class="fr-hint-text"> exemple : Dr. Dupont</span>
+                {{ form_row(form.urgence.nameDoctor, {'attr': {'class': 'fr-input'}}) }}
             </div>
             {# ------------------------------------------------------------ #}
-            <div class="fr-input-group">
-                <label class="fr-label" for="text-input-option"> Adresse du medecin
-                </label>
-                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            <div class="fr-input-group style="margin: "35px">
+                <span class="fr-hint-text"> exemple : 5 rue du Limpsum</span>
+                {{ form_row(form.urgence.addressDoctor, {'attr': {'class': 'fr-input'}}) }}
             </div>
             {# ------------------------------------------------------------ #}
-            <div class="fr-input-group">
-                <label class="fr-label" for="text-input-option">Téléphone du médecin
-                </label>
-                <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
+            <div class="fr-input-group style="margin: "35px">
+                <span class="fr-hint-text"> exemple : 02 37 00 00 00</span>
+                {{ form_row(form.urgence.phoneDoctor, {'attr': {'class': 'fr-input'}}) }}
             </div>
             {# ------------------------------------------------------------ #}
-            <div class="fr-input-group">
-                <label class = "fr-label" for="text-input_date"> Date du dernier rappel de vaccin antitétanique
-                <input class="fr-input "type="date">
-            </div>
+            <div class="fr-input-group style="margin: "35px">
+                <span class="fr-hint-text"> exemple : 5 rue du Limpsum</span>
+                {{ form_row(form.urgence.observation, {'attr': {'class': 'fr-input'}}) }}
 
-        </form>
         
     </div>
     
 </div>
 
-<a class="fr-btn" href="/form/5">Suivant</a>
-
+<div class="fr-mt-4w">
+        <button class="fr-btn" type="submit">Suivant</button>
+        <div style="display: none;">
+            {{ form_rest(form) }}
+        </div>
+        {{ form_end(form, {'render_rest': false}) }}
+      </div>
 {% endblock %}

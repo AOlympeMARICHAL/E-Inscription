@@ -1,7 +1,7 @@
 <?php
-
+ 
 namespace App\Form;
-
+ 
 use App\Entity\Eleve;
 use App\Entity\Financier;
 use App\Entity\Individu;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+ 
 class EleveType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -22,7 +22,7 @@ class EleveType extends AbstractType
             ->add('INE', TextType::class, [
                 'label' => ' ',
             ])
-            
+           
             ->add('dateEntree', null, [
                 'label' => ' ',
                 'widget' => 'single_text',
@@ -45,7 +45,7 @@ class EleveType extends AbstractType
                         'style' => 'display: none;',
                     ];
                 }
-
+ 
             ])
             ->add('gradeRepetition', CheckboxType::class, [
                 'label' => 'Redoublement',
@@ -75,7 +75,7 @@ class EleveType extends AbstractType
                 'label' => 'Sexe',  
                 'expanded' => true,
                 'multiple' => false,
-                'required' => false,
+                'required' => true,
                 'choices' => [
                     'Féminin' => 'F',
                     'Masculin' => 'M'
@@ -89,17 +89,10 @@ class EleveType extends AbstractType
                     ];
                 }
             ))
-            
-            ->add('nationality')
-            ->add('dateBirth', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('departmentBirth')
-            ->add('gradeRepetition')
-            ->add('regime')
+ 
             ->add('transport', ChoiceType::class, [
                 'label' => ' ',
-                'expanded' => true, 
+                'expanded' => true,
                 'multiple' => true,
                 'required' => false,
                 'choices' => [
@@ -110,7 +103,7 @@ class EleveType extends AbstractType
                 'attr' => [
                 'class' => 'fr-checkbox-group',
                 ]
-
+ 
                 ])
             ->add('immaVehicle', null, [
                 'label' => ' ',
@@ -139,22 +132,22 @@ class EleveType extends AbstractType
             ])
             ->add('mdl', ChoiceType::class, [
                 'label' => 'Souhaitez-vous être membre de la MDL ?',
-                'required' => false,
+                'required' => true,
                 'label_attr' => [
                     'class' => 'fr-text--bold'
                 ],
-                'expanded' => true, 
+                'expanded' => true,
                 'multiple' => false,
                 'choices' => [
                     'Oui' => 1,
                     'Non' => 0,
                 ],
                 'attr' => [
-                    'class' => 'fr-radio-group', // This applies to the container
+                    'class' => 'fr-radio-group',
                 ],
                 'choice_attr' => function ($choice, $key, $value) {
                     return [
-                        'class' => 'fr-radio-rich', // This applies to individual radio inputs
+                        'class' => 'fr-radio-rich',
                     ];
                 },
                 'help' => 'Si oui, le jour de la rentrée, vous devez fournir un chèque de 10€ au nom de la MDL',
@@ -167,19 +160,19 @@ class EleveType extends AbstractType
                 'label_attr' => [
                     'class' => 'fr-text--bold'
                 ],
-                'expanded' => true, 
+                'expanded' => true,
                 'multiple' => false,
-                'required' => false,
+                'required' => true,
                 'choices' => [
                     'Oui' => 1,
                     'Non' => 0,
                 ],
                 'attr' => [
-                    'class' => 'fr-radio-group', // This applies to the container
+                    'class' => 'fr-radio-group',
                 ],
                 'choice_attr' => function ($choice, $key, $value) {
                     return [
-                        'class' => 'fr-radio-rich', // This applies to individual radio inputs
+                        'class' => 'fr-radio-rich',
                     ];
                 },
                 'help' => 'Si oui, vous n\'apparaîtrez sur aucune photo de l\'établissement',
@@ -191,15 +184,15 @@ class EleveType extends AbstractType
                 'label' => ' ',
                 'required' => false,
             ])
-            ->add('vitalCard', null, [
+            ->add('vitalCard', null, [ //carte vitale (document)
                 'label' => ' ',
                 'required' => false,
             ])
-            ->add('idCertificate', null, [
+            ->add('idCertificate', null, [ //carte d'identité (document)
                 'label' => ' ',
                 'required' => false,
             ])
-            ->add('assurance', null, [
+            ->add('assurance', null, [ //assurance (document)
                 'label' => ' ',
                 'required' => false,
             ])
@@ -224,7 +217,7 @@ class EleveType extends AbstractType
             ])
         ;
     }
-
+ 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
@@ -232,3 +225,4 @@ class EleveType extends AbstractType
         ]);
     }
 }
+ 
