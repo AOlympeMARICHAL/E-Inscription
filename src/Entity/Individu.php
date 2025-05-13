@@ -47,7 +47,11 @@ class Individu
     private ?Financier $financier = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Responsable $responsable = null;
+    private ?Responsable $responsable1 = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Responsable $responsable2 = null;
+
 
     #[ORM\ManyToOne(inversedBy: 'id_individu')]
     private ?Urgence $urgence = null;
@@ -189,14 +193,26 @@ class Individu
         return $this;
     }
 
-    public function getResponsable(): ?Responsable
+    public function getResponsable1(): ?Responsable
     {
-        return $this->responsable;
+        return $this->responsable1;
     }
 
-    public function setResponsable(?Responsable $responsable): static
+    public function getResponsable2(): ?Responsable
     {
-        $this->responsable = $responsable;
+        return $this->responsable2;
+    }
+
+    public function setResponsable1(?Responsable $responsable1): static
+    {
+        $this->responsable1 = $responsable1;
+
+        return $this;
+    }
+
+    public function setResponsable2(?Responsable $responsable2): static
+    {
+        $this->responsable2 = $responsable2;
 
         return $this;
     }

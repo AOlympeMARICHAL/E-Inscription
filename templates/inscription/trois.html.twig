@@ -113,4 +113,16 @@
 </form>
 
 <a class="fr-btn" href="/form/4">Suivant</a>
+
+<script>
+    const majeurCheckbox = document.querySelector('#{{ form.majeur.vars.id }}');
+    const responsableWrapper = document.getElementById('responsables-wrapper');
+
+    function toggleResponsable() {
+        responsableWrapper.style.display = majeurCheckbox.checked ? 'none' : 'block';
+    }
+
+    majeurCheckbox.addEventListener('change', toggleResponsable);
+    document.addEventListener('DOMContentLoaded', toggleResponsable);
+</script>
 {% endblock %}

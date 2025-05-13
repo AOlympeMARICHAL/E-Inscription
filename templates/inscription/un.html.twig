@@ -3,210 +3,135 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
+
+<!-- Fil d'Ariane à modifier pour adapter-->
 <nav role="navigation" class="fr-breadcrumb" aria-label="Vous êtes ici :">
   <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
   <div class="fr-collapse" id="breadcrumb-1">
-    <ul class="fr-breadcrumb__list">
-      <li>
-        <a class="fr-breadcrumb__link" href="/">Accueil</a>
-      </li>
-      <li>
-        <a class="fr-breadcrumb__link" href="#">Renseignement</a>
-      </li>
-    </ul>
+    <ul class="fr-breadcrumb__list" id="breadcrumb-steps"></ul>
   </div>
 </nav>
 
 <div class="fr-container">
   <h1>Inscription au Lycée Fulbert</h1>
-  <div class="fr-stepper">
-    <h2 class="fr-stepper__title">
-      Renseignement
-      <span class="fr-stepper__state">Étape 1 sur 7</span>
-    </h2>
-    <div class="fr-stepper__steps" data-fr-current-step="1" data-fr-steps="7"></div>
-    <p class="fr-stepper__details">
-      <span class="fr-text--bold">Étape suivante :</span> Scolarité antérieur
-    </p>
-</div>
-
-{# ----------------------------------------------------------- #}
-{{ form_start(form) }}
-{{ form_errors(form) }}
- <div class="sp-perso sp-perso-content fr-mb-4w">
-    <div class="sp-perso-header">
-      <h3 class="fr-h3 sp-perso-title sp-accent">Identité de l'élève</h3>
+  {{ form_start(form) }}
+  {{ form_errors(form) }}
+  <div id="step1" class="form-step">
+    <div class="fr-stepper">
+      <h2 class="fr-stepper__title">
+        Renseignement
+        <span class="fr-stepper__state">Étape 1 sur 7</span>
+      </h2>
+      <div class="fr-stepper__steps" data-fr-current-step="1" data-fr-steps="7"></div>
+      <p class="fr-stepper__details">
+        <span class="fr-text--bold">Étape suivante :</span> Scolarité antérieur
+      </p>
     </div>
+    <div class="sp-perso sp-perso-content fr-mb-4w">
+      <div class="sp-perso-header">
+        <h3 class="fr-h3 sp-perso-title sp-accent">Identité de l'élève</h3>
+      </div>
       <div class="fr-input-group fr-grid-row">
         <div class="fr-fieldset__element">
-            <legend class="fr-fieldset__legend">INE</legend>
-            <span class="fr-hint-text">Format attendu : 1234567890 AB</span>
-            {# --------------input ici------------- #}
-            {{ form_row(form.eleve.INE, {'attr': {'class': 'fr-input'} })  }}
-          </div>
+          <legend class="fr-fieldset__legend">INE</legend>
+          <span class="fr-hint-text">Format attendu : 1234567890 AB</span>
+          {{ form_row(form.eleve.INE, {'attr': {'class': 'fr-input'} })  }}
+        </div>
         <fieldset class="fr-fieldset" aria-label="Nom et prénom">
           <div class="fr-fieldset__element">
             <legend class="fr-fieldset__legend">Nom</legend>
-            {# --------------input ici------------- #}
             {{ form_row(form.individu.name, {'attr': {'class': 'fr-input'} })  }}
           </div>
           <div class="fr-fieldset__element">
             <legend class="fr-fieldset__legend">Prénom</legend>
-            {# --------------input ici------------- #}
             {{ form_row(form.individu.lastname, {'attr': {'class': 'fr-input'} })  }}
           </div>
           <div class="fr-fieldset__element">
             <legend class="fr-fieldset__legend">Date de naissance</legend>
-            {# --------------input ici------------- #}
             {{ form_row(form.eleve.dateBirth, {'attr': {'class': 'fr-input'} })  }}
           </div>
           <div class="fr-fieldset__element">
             <legend class="fr-fieldset__legend">Nationalité</legend>
-            {# --------------input ici------------- #}
             {{ form_row(form.eleve.nationality, {'attr': {'class': 'fr-input'} })  }}
           </div>
           <div class="fr-fieldset__element">
             <legend class="fr-fieldset__legend">Département de Naissance</legend>
             <span class="fr-hint-text">Format attendu : 28</span>
-            {# --------------input ici------------- #}
             {{ form_row(form.eleve.departmentBirth, {'attr': {'class': 'fr-input'} })  }}
           </div>
         </fieldset>
       </div>
-
-      <div class="fr-input-group">
-        <legend class="fr-fieldset__legend" for="tel-1">
-          Numéro de téléphone
-          <span class="fr-hint-text">Format attendu : (+33) 1 22 33 44 55</span>
-        </legend>
-         {# --------------input ici------------- #}
-            {{ form_row(form.individu.mobilePhone, {'attr': {'class': 'fr-input'} })  }}
-        <div class="fr-messages-group" id="tel-1-messages" aria-live="assertive"></div>
-      </div>
-
-      <div class="fr-input-group">
-        <legend class="fr-fieldset__legend">
-          Adresse électronique
-          <span class="fr-hint-text">Format attendu : nom@email.fr</span>
-        </legend>
-        {# --------------input ici------------- #}
-            {{ form_row(form.individu.email, {'attr': {'class': 'fr-input'} })  }}
-      </div>
-      <div class="fr-input-group">
-        <legend class="fr-fieldset__legend">
-          Ville
-        </legend>
-        {# --------------input ici------------- #}
-            {{ form_row(form.individu.city, {'attr': {'class': 'fr-input'} })  }}
-      </div>
-      <div class="fr-input-group">
-        <legend class="fr-fieldset__legend">
-          Commune
-        </legend>
-        {# --------------input ici------------- #}
-
-            {{ form_row(form.individu.commune, {'attr': {'class': 'fr-input'} })  }}
-      </div>
-      <div class="fr-input-group">
-        <legend class="fr-fieldset__legend">
-          Adresse
-        </legend>
-        {# --------------input ici------------- #}
-            {{ form_row(form.individu.address, {'attr': {'class': 'fr-input'} })  }}
-      </div>
-      <div class="fr-input-group">
-        <legend class="fr-fieldset__legend">
-          Code Postal
-        </legend>
-        {# --------------input ici------------- #}
-            {{ form_row(form.individu.zip, {'attr': {'class': 'fr-input'} })  }}
-      </div>
-    
-    {# --------------Deuxième partie du form ------------- #}
-
-    <fieldset class="fr-fieldset">
-    <legend class="fr-fieldset__legend">Sexe</legend>
-      <div class="fr-fieldset__content ">
-        {{ form_row(form.eleve.sexe) }}
-      </div>
-    </fieldset>
-
-    <h3>Transport</h3>
-    <p>Type(s) de transport utilisé(s) pour se rendre au lycée :</p>
-
-    <fieldset class="fr-fieldset">
-      <div class="fr-fieldset__content ">
-        {{ form_row(form.eleve.transport) }}
-      </div>
-    </fieldset>
-
-    <h3>Scolarité pour cette année</h3>
-
-    <fieldset class="fr-fieldset">
-    <label class="fr-fieldset__legend">Redoublement</label>
-      <div class="fr-fieldset__content ">
-        {{ form_row(form.eleve.gradeRepetition) }}
-      </div>
-    </fieldset>
-
-    <fieldset class="fr-fieldset" aria-label="Classe et spécialité">
-    <div class="fr-fieldset__element">
-      <div class="fr-input-group">
-        <legend class="fr-fieldset__legend">Classe</legend>
-         {{ form_row(form.eleve.cours) }}
-      </div>
-      <div class="fr-input-group">
-        <legend class="fr-fieldset__legend">Spécialité</legend>
-         {{ form_row(form.eleve.speciality) }}
-      </div>
-    </div>  
-    </fieldset>
-
-    <h3>Langues</h3>
-
-    <fieldset class="fr-fieldset" aria-label="Langues">
-      <div class="fr-grid-row">
-        <div class="fr-fieldset__element">
-          <div class="fr-input-group">
-            <label class="fr-label" for="lv1">LV1</label>
-            {{ form_row(form.eleve.lv1) }}
-          </div>
-        </div>
-        <div class="fr-fieldset__element">
-            <div class="fr-input-group">
-              <label class="fr-label" for="lv2">LV2 (facultatif)</label>
-              {{ form_row(form.eleve.lv2) }}
-            </div>
-          </div>
-      </div>
-    </fieldset>
-
-    <h3>Vie Lycéenne</h3>
-
-    <p class="fr-text--bold">
-        Souhaitez-vous être membre de la MDL ?
-        <span class="fr-hint-text">(si oui, le jour de la rentrée, vous devez fournir un chèque de 10€ au nom de la MDL)</span>
-        {{ form_row(form.eleve.mdl) }}
-    </p>
-
-    <p class="fr-text--bold">
-        Souhaitez-vous garder votre droit à l'image ?
-        <span class="fr-hint-text">(si oui, vous n'apparaîtrez sur aucune photo de l'établissement)</span>
-        {{ form_row(form.eleve.copyright) }}
-    </p>
-
-    
+    </div>
 
 
-      <div class="fr-mt-4w">
-        <button class="fr-btn" type="submit">Suivant</button>
-        {{ form_rest(form)}}
-        {{ form_end(form, {'render_rest': false}) }}
-      </div>
+
+
+
+
+
   </div>
+  <div id="step2" class="form-step">
+
+
+  </div>
+  <div id="step3" class="form-step">
+
+
+
+  </div>
+
 </div>
 
 
+{% endblock %}
 
- 
+
+
+
+
+
+
+
+{% block javascript %}
+
+<script>
+  const breadcrumbSteps = [
+    "Renseignement sur l'étudiant(e)",
+    "Scolarité antérieure de l'étudiant(e)",
+    "Responsables légaux",
+    "Fiche d'urgence",
+    "Fiche d'intendance",
+    "Antécédents médicaux",
+    "Personne à contacter"
+  ];
+
+  function updateBreadcrumb(step) {
+    const breadcrumbList = document.getElementById('breadcrumb-steps');
+    breadcrumbList.innerHTML = '';
+
+    const home = document.createElement('li');
+    home.innerHTML = `<a class="fr-breadcrumb__link" href="/">Accueil</a>`;
+    breadcrumbList.appendChild(home);
+
+    for (let i = 0; i < step; i++) {
+      const li = document.createElement('li');
+      if (i === step - 1) {
+        li.innerHTML = `<span class="fr-breadcrumb__link">${breadcrumbSteps[i]}</span>`;
+      } else {
+        li.innerHTML = `<a class="fr-breadcrumb__link" href="#">${breadcrumbSteps[i]}</a>`;
+      }
+      breadcrumbList.appendChild(li);
+    }
+  }
+
+  function showStep(step) {
+    for (let i = 1; i <= totalSteps; i++) {
+      const div = document.getElementById('step' + i);
+      if (div) div.style.display = (i === step) ? 'block' : 'none';
+    }
+    updateBreadcrumb(step);
+  }
+</script>
+
+
 {% endblock %}

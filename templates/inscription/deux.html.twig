@@ -1,165 +1,139 @@
 {% extends 'base.html.twig' %}
-
+ 
 {% block title %}Inscription{% endblock %}
-
+ 
 {% block body %}
-
+ 
 {# -----------------------Fil d'Ariane------------------------------------- #}
 <nav role="navigation" class="fr-breadcrumb" aria-label="Vous êtes ici :">
-  <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+  <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d'Ariane</button>
   <div class="fr-collapse" id="breadcrumb-1">
     <ul class="fr-breadcrumb__list">
       <li>
         <a class="fr-breadcrumb__link" href="/">Accueil</a>
       </li>
       <li>
-        <a class="fr-breadcrumb__link" href="/inscription/un">Renseignement</a>
+        <a class="fr-breadcrumb__link" href="/inscription">Renseignement</a>
       </li>
       <li>
-        <a class="fr-breadcrumb__link" href="#">Scolarité antérieur</a>
+        <a class="fr-breadcrumb__link" href="#">Scolarité antérieure</a>
         </li>
     </ul>
   </div>
 </nav>
-
+ 
 {# ------------------------------------------------------------ #}
-
 <div class="fr-container">
+ 
   <h1>Inscription au Lycée Fulbert</h1>
   <div class="fr-stepper">
     <h2 class="fr-stepper__title">
-       Scolarité antérieur de l'étudiant
+       Scolarité antérieure de l'étudiant
       <span class="fr-stepper__state">Étape 2 sur 7</span>
     </h2>
     <div class="fr-stepper__steps" data-fr-current-step="2" data-fr-steps="7"></div>
     <p class="fr-stepper__details">
       <span class="fr-text--bold">Étape suivante :</span> Responsables légaux
     </p>
-</div>
-
-{# ----------------------Année précendente (à rendre dynamique)-------------------------------------- #}
-
-<h3>{{ "now"|date("Y")-3 }}-{{ "now"|date("Y")-2 }} :</h3>
-
-{# ------------------------------------------------------------ #}
-{# {{ form_start(form) }}
-{{ form_errors(form) }} #}
-<div class="sp-perso sp-perso-content fr-mb-4w">
+  </div>
+ 
+   <div class="sp-perso sp-perso-content fr-mb-4w">
     <div class="sp-perso-header">
         <h3 class="fr-h3 sp-perso-title sp-accent">Parcours antécédents</h3>
     </div>
-</div>
+ 
+  {{ form_start(form) }}
+ 
+ 
+  {# ----------------------Année précédente (à rendre dynamique)-------------------------------------- #}
+  <h3>{{ "now"|date("Y")-3 }}-{{ "now"|date("Y")-2 }} :</h3>
 
-{# {{ form_end(form) }} #}
-
-<div class="fr-input-group" style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-name-etab">Nom de l'établissement
-        <span class="fr-hint-text">exemple : Lycée Fulbert Chartres</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-name-etab" name="text-input-name-etab">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-classe">Classe
-        <span class="fr-hint-text">exemple : Première Générale</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-classe" name="text-input-classe">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-option">Option
-        <span class="fr-hint-text">exemple : Math Experte</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-lv1">Langue Vivante 1
-        <span class="fr-hint-text">Exemple : Anglais</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-lv1" name="text-input-lv1">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-lv2">Langue Vivante 2
-        <span class="fr-hint-text">Exemple : Espagnol</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-lv2" name="text-input-lv2">
-</div>
-
-{# --------------------Année dernière (à rendre dynamique)---------------------------------------- #}
-
-<h3>{{ "now"|date("Y")-2 }}-{{ "now"|date("Y")-1 }} :</h3>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group" style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-name-etab">Nom de l'établissement
-        <span class="fr-hint-text">exemple : Lycée Fulbert Chartres</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-name-etab" name="text-input-name-etab">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-classe">Classe
-        <span class="fr-hint-text">exemple : Terminal Générale</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-classe" name="text-input-classe">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-option">Option
-        <span class="fr-hint-text">exemple : Math Experte</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-option" name="text-input-option">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-lv1">Langue Vivante 1
-        <span class="fr-hint-text">Exemple : Anglais</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-lv1" name="text-input-lv1">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-lv2">Langue Vivante 2
-        <span class="fr-hint-text">Exemple : Espagnol</span>
-    </label>
-    <input class="fr-input" type="text" id="text-input-lv2" name="text-input-lv2">
-</div>
-
-{# ------------------------------------------------------------ #}
-
-<h3>Dernier diplôme obtenue</h3>
-
-{# ------------------------------------------------------------ #}
-
-<div class="fr-input-group"style = 'margin: 35px'>
-    <label class="fr-label" for="text-input-diplôme">
+  <div class="fr-input-group" style="margin: 35px">
+    <legend class="fr-fieldset__legend">Nom de l'établissement</legend>
+    <span class="fr-hint-text">Exemple : Lycée Fulbert Chartres</span>
+    {{ form_row(form.antecedent1.school, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Niveau d'étude</legend>
+    <span class="fr-hint-text">Exemple : Première Générale</span>
+    {{ form_row(form.antecedent1.classe, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Option pris</legend>
+    <span class="fr-hint-text">Exemple : Math Experte</span>
+    {{ form_row(form.antecedent1.option, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Langue LV1</legend>
+    <span class="fr-hint-text">Exemple : Anglais</span>
+    {{ form_row(form.antecedent1.lv1, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Langue LV2 (Optionnel)</legend>
+    <span class="fr-hint-text">Exemple : Espagnol</span>
+    {{ form_row(form.antecedent1.lv2, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  {# --------------------Année dernière (à rendre dynamique)---------------------------------------- #}
+  <h3>{{ "now"|date("Y")-2 }}-{{ "now"|date("Y")-1 }} :</h3>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Nom de l'établissement</legend>
+    <span class="fr-hint-text">Exemple : Lycée Fulbert Chartres</span>
+    {{ form_row(form.antecedent2.school, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Niveau d'étude</legend>
+    <span class="fr-hint-text">Exemple : Terminale Générale</span>
+    {{ form_row(form.antecedent2.classe, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Option pris</legend>
+    <span class="fr-hint-text">Exemple : Math Experte</span>
+    {{ form_row(form.antecedent2.option, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Langue LV1</legend>
+    <span class="fr-hint-text">Exemple : Anglais</span>
+    {{ form_row(form.antecedent2.lv1, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+  <legend class="fr-fieldset__legend">Langue LV2</legend>
+    <span class="fr-hint-text">Exemple : Espagnol</span>
+    {{ form_row(form.antecedent2.lv2, {'attr': {'class': 'fr-input'}}) }}
+  </div>
+ 
+  {# ------------------------------------------------------------ #}
+ 
+  <h3>Dernier diplôme obtenu</h3>
+ 
+  <div class="fr-input-group" style="margin: 35px">
+    <label class="fr-label" for="text-input-diplome">
         <span class="fr-hint-text">Exemple : BAC Général</span>
     </label>
-    <input class="fr-input" type="text" id="text-input-diplôme" name="text-input-diplôme">
+    <input class="fr-input" type="text" id="text-input-diplome" name="diplome">
+  </div>
+ 
+  {# ------------------------------------------------------------ #}
+<div id="step2" style="display:none;">
+      {{ form_row(form.antecedent1) }}
+      {{ form_row(form.antecedent2) }}
+    {{ form_rest(form)}}
+    </div>
+  <div class="fr-mt-4w">
+    <button class="fr-btn" type="submit">Suivant</button>
+  </div>
+ 
+  {{ form_end(form) }}
+ 
 </div>
-
-{# ------------------------------------------------------------ #}
-
-<a class="fr-btn" href="/form/3">Suivant</a>
-
+</div>
 {% endblock %}
