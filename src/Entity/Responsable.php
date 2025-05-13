@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ResponsableRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ResponsableRepository::class)]
@@ -27,6 +29,17 @@ class Responsable
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $job = null;
+
+    /**
+     * @var Collection<int, Eleve>
+     */
+    #[ORM\ManyToMany(targetEntity: Eleve::class, inversedBy: 'responsables')]
+    private Collection $eleve;
+
+    public function __construct()
+    {
+        $this->eleve = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -89,6 +102,30 @@ class Responsable
     public function setJob(?string $job): static
     {
         $this->job = $job;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Eleve>
+     */
+    public function getEleve(): Collection
+    {
+        return $this->eleve;
+    }
+
+    public function addEleve(Eleve $eleve): static
+    {
+        if (!$this->eleve->contains($eleve)) {
+            $this->eleve->add($eleve);
+        }
+
+        return $this;
+    }
+
+    public function removeEleve(Eleve $eleve): static
+    {
+        $this->eleve->removeElement($eleve);
 
         return $this;
     }

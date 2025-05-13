@@ -96,9 +96,16 @@ class Eleve
     #[ORM\Column(nullable: true)]
     private ?bool $redoublement = null;
 
+    /**
+     * @var Collection<int, Responsable>
+     */
+    #[ORM\ManyToMany(targetEntity: Responsable::class, mappedBy: 'eleve')]
+    private Collection $responsables;
+
     public function __construct()
     {
         $this->antecedent = new ArrayCollection();
+        $this->responsables = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -419,6 +426,33 @@ public function setTransport(?array $transport): self
     public function setRedoublement(?bool $redoublement): static
     {
         $this->redoublement = $redoublement;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Responsable>
+     */
+    public function getResponsables(): Collection
+    {
+        return $this->responsables;
+    }
+
+    public function addResponsable(Responsable $responsable): static
+    {
+        if (!$this->responsables->contains($responsable)) {
+            $this->responsables->add($responsable);
+            $responsable->addEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResponsable(Responsable $responsable): static
+    {
+        if ($this->responsables->removeElement($responsable)) {
+            $responsable->removeEleve($this);
+        }
 
         return $this;
     }

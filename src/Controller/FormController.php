@@ -117,7 +117,7 @@ if ($form->isSubmitted() && $form->isValid()) {
     $em->persist($antecedent2);
     $em->flush();
 
-    return $this->redirectToRoute('app_inscription_etape4');
+    return $this->redirectToRoute('app_inscription_etape3');
 }
 
         return $this->render('inscription/deux.html.twig', [
@@ -126,18 +126,25 @@ if ($form->isSubmitted() && $form->isValid()) {
     }
 
     #[Route('/inscription/responsableslegaux', name: 'app_inscription_etape3')]
-public function page3(Request $request, SessionInterface $session): Response
+public function page3(Request $request, EntityManagerInterface $em, EleveRepository $eleveRepository): Response
 {
-    // Use Responsable objects instead of Individu
-    $parent1 = new Responsable();
-    $parent2 = new Responsable();
+    
+    $parent1 = new Individu();
+    $parent2 = new Individu();
+    $responsable1 = new Responsable();
+    $responsable2 = new Responsable();
+    $eleve = $eleveRepository->findOneBy([], ['id' => 'DESC']);
 
     $form = $this->createFormBuilder([
         'parent1' => $parent1,
         'parent2' => $parent2,
+        'responsable1' => $responsable1,
+        'responsable2' => $responsable2
     ])
     ->add('parent1', ResponsableType::class)
     ->add('parent2', ResponsableType::class)
+    ->add('responsable1', AContacterType::class)
+    ->add('responsable2', AContacterType::class)
     ->getForm();
 
     $form->handleRequest($request);
@@ -145,16 +152,37 @@ public function page3(Request $request, SessionInterface $session): Response
     if ($form->isSubmitted() && $form->isValid()) {
         $data = $form->getData();
         
-        $session->set('parent1', $data['parent1']);
-        $session->set('parent2', $data['parent2']);
-        
-        return new RedirectResponse($this->generateUrl('app_inscription_etape4'));
+        $parent1 = $data['parent1'];
+        $parent2 = $data['parent2'];
+        $responsable1 = $data['responsable1'];
+        $responsable2 = $data['responsable2'];
+
+        $parent1->setResponsable($responsable1);
+        $parent2->setResponsable($responsable2);
+        $responsable1->setEleve($eleve);
+        $responsable2->setEleve($eleve);
+
+        $em->persist($parent1);
+        $em->persist($parent2);
+        $em->persist($responsable1);
+        $em->persist($responsable2);
+        $em->flush();
+
+        return $this->redirectToRoute('app_inscription_etape4');
     }
 
     return $this->render('inscription/trois.html.twig', [
         'form' => $form->createView(),
     ]);
 }
+
+
+
+
+
+
+
+
 
 
 #[Route('/inscription/urgence', name: 'app_inscription_etape4')]
@@ -179,6 +207,18 @@ public function page4(Request $request, SessionInterface $session, EntityManager
         'form' => $form->createView(),
     ]);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 #[Route('/inscription/financier', name: 'app_inscription_etape5')]
 public function page5(Request $request, SessionInterface $session): Response
