@@ -1,21 +1,96 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" href="/register">Inscription</a>
+            </li>
+        </ol>
+    </div>
+</nav>
 
-    {{ form_errors(registrationForm) }}
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Mot de passe'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">M'inscrire</button>
-    {{ form_end(registrationForm) }}
-    <p><a href="{{ path('app_login') }}">Déjà inscrit ? Me connecter</a></p>
+<main class="fr-pt-md-14v" role="main" id="content">
+    <div class="fr-container fr-container--fluid fr-mb-md-14v">
+        <div class="fr-grid-row fr-grid-row-gutters fr-grid-row--center">
+            <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+                <div class="fr-container fr-background-alt--grey fr-px-md-0 fr-py-10v fr-py-md-14v">
+                    <div class="fr-grid-row fr-grid-row-gutters fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-9 fr-col-lg-8">
+                            <h1 style="text-align: center;">Inscription à <br>E-Inscription</h1>
+                            <div class="fr-mb-6v">
+                                <h2 style="text-align: center;">S'inscrire avec FranceConnect</h2>
+                                <div class="fr-connect-group">
+                                    <button class="fr-connect">
+                                        <span class="fr-connect__login">S’identifier avec</span>
+                                        <span class="fr-connect__brand">FranceConnect</span>
+                                    </button>
+                                    <p>
+                                        <a href="https://franceconnect.gouv.fr/" target="_blank" rel="noopener" title="Qu’est ce que FranceConnect ? - nouvelle fenêtre">Qu’est ce que FranceConnect ?</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="fr-hr-or">ou</p>
+                            <form method="post" class="fr-form-group">
+                                <fieldset class="fr-fieldset" aria-labelledby="register-fieldset-legend">
+                                    <legend class="fr-fieldset__legend" id="register-fieldset-legend">
+                                        <h2>Créer un compte</h2>
+                                    </legend>
+                                    <div class="fr-fieldset__element">
+                                        {{ form_row(registrationForm.username, {
+                                            label: "Nom d'utilisateur",
+                                            attr: {"class": "fr-input", "placeholder": "Votre nom d'utilisateur"}
+                                        }) }}
+                                    </div>
+                                    <div class="fr-fieldset__element">
+                                        {{ form_row(registrationForm.email, {
+                                            label: "Adresse e-mail",
+                                            attr: {"class": "fr-input", "placeholder": "Votre adresse e-mail"}
+                                        }) }}
+                                    </div>
+                                    <div class="fr-fieldset__element">
+                                        {{ form_row(registrationForm.plainPassword, {
+                                            label: "Mot de passe",
+                                            attr: {"class": "fr-input", "placeholder": "Choisissez un mot de passe"}
+                                        }) }}
+                                    </div>
+                                    <div class="fr-fieldset__element">
+                                        {{ form_row(registrationForm.agreeTerms, {
+                                            label: "J'accepte les termes et conditions",
+                                            attr: {"class": "fr-checkbox", "style": "display: flex; align-items: center;"}
+                                        }) }}
+                                    </div>
+                                    <ul class="fr-btns-group">
+                                        <li>
+                                            <button type="submit" class="fr-btn">
+                                                M'inscrire
+                                            </button>
+                                            {{ form_end(registrationForm) }}
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </form>
+                            <hr>
+                            <h2>Déjà inscrit ?</h2>
+                            <ul class="fr-btns-group">
+                                <li>
+                                    <a class="fr-btn fr-btn--secondary" href="{{ path('app_login') }}">
+                                        Me connecter
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}
